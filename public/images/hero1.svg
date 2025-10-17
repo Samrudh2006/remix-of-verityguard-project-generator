@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6ee7b7;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="#0b0f1a"/>
+  
+  <!-- Abstract tech pattern -->
+  <circle cx="200" cy="150" r="80" fill="url(#heroGradient)" opacity="0.5"/>
+  <circle cx="200" cy="150" r="60" fill="none" stroke="#6ee7b7" stroke-width="2" opacity="0.7"/>
+  <circle cx="200" cy="150" r="40" fill="none" stroke="#6ee7b7" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Tech nodes -->
+  <circle cx="200" cy="70" r="5" fill="#6ee7b7"/>
+  <circle cx="280" cy="150" r="5" fill="#6ee7b7"/>
+  <circle cx="200" cy="230" r="5" fill="#6ee7b7"/>
+  <circle cx="120" cy="150" r="5" fill="#6ee7b7"/>
+  
+  <!-- Connection lines -->
+  <line x1="200" y1="70" x2="200" y2="150" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+  <line x1="280" y1="150" x2="200" y2="150" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+  <line x1="200" y1="230" x2="200" y2="150" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+  <line x1="120" y1="150" x2="200" y2="150" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+</svg>

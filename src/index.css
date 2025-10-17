@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom futuristic styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0b0f1a;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Neon button styles */
+.neon-button {
+  position: relative;
+  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 100%);
+  border: none;
+  color: #0b0f1a;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(110, 231, 183, 0.5);
+}
+
+.neon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(110, 231, 183, 0.8), 0 0 60px rgba(110, 231, 183, 0.4);
+}
+
+.neon-button:active {
+  transform: translateY(0);
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(30, 39, 64, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(110, 231, 183, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(30, 39, 64, 0.8);
+  border-color: rgba(110, 231, 183, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(110, 231, 183, 0.2);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6ee7b7;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* 
+  TODO: Future AI Integration Styles
+  - Add styles for AI chat widget
+  - Trust Score progress bars
+  - Badge animations
+*/
+
+/* 
+  TODO: Gamification UI Elements
+  - Points counter animation
+  - Level-up effects
+  - Achievement unlock modals
+*/
+
+/* 
+  TODO: Trust Score Visualization
+  - Circular progress indicator
+  - Trust score badges
+  - Verification checkmarks
+*/
