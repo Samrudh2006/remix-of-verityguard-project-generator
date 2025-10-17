@@ -1,0 +1,21 @@
+{
+  "app_name": "VerityGuard",
+  "tagline": "Verificación con IA",
+  "nav": {
+    "home": "Inicio",
+    "feed": "Noticias",
+    "leaderboard": "Clasificación",
+    "profile": "Perfil",
+    "login": "Iniciar Sesión",
+    "signup": "Registrarse"
+  },
+  "hero": {
+    "title": "Verifica Noticias. Combate la Desinformación.",
+    "subtitle": "Únete a miles que usan verificación con IA para combatir noticias falsas.",
+    "cta_primary": "Comenzar"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error"
+  }
+}
