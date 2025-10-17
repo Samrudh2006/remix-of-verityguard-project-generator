@@ -26,21 +26,30 @@ function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-white hover:text-primary transition-colors duration-300"
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('features')}
-              className="text-white hover:text-primary transition-colors duration-300"
+              onClick={() => scrollToSection('articles')}
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
             >
-              Features
+              Articles
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
-              className="text-white hover:text-primary transition-colors duration-300"
+              onClick={() => scrollToSection('leaderboard')}
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
             >
-              Contact
+              Leaderboard
+            </button>
+            <button
+              onClick={() => scrollToSection('badges')}
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Badges
+            </button>
+            <button className="px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all">
+              header.login
             </button>
             {/* TODO: Add user profile icon with Trust Score badge */}
           </div>
@@ -62,24 +71,33 @@ function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 space-y-4">
+          <div className="md:hidden mt-4 space-y-4 pb-4">
             <button
               onClick={() => scrollToSection('home')}
-              className="block w-full text-left text-white hover:text-primary transition-colors duration-300"
+              className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('features')}
-              className="block w-full text-left text-white hover:text-primary transition-colors duration-300"
+              onClick={() => scrollToSection('articles')}
+              className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
             >
-              Features
+              Articles
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
-              className="block w-full text-left text-white hover:text-primary transition-colors duration-300"
+              onClick={() => scrollToSection('leaderboard')}
+              className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
             >
-              Contact
+              Leaderboard
+            </button>
+            <button
+              onClick={() => scrollToSection('badges')}
+              className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Badges
+            </button>
+            <button className="w-full px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:shadow-lg transition-all">
+              header.login
             </button>
           </div>
         )}

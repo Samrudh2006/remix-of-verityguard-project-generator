@@ -2,6 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import Articles from './components/Articles';
+import Leaderboard from './components/Leaderboard';
+import Badges from './components/Badges';
 import Footer from './components/Footer';
 
 function App() {
@@ -12,19 +15,27 @@ function App() {
       
       {/* Main content */}
       <main>
-        {/* Hero section */}
+        {/* Hero section with stats */}
         <Hero />
         
-        {/* Features section - TODO: Add gamification cards here */}
+        {/* Features section */}
         <Features />
         
+        {/* Articles with Trust Scores */}
+        <Articles />
+        
+        {/* Leaderboard */}
+        <Leaderboard />
+        
+        {/* Badges & Achievements */}
+        <Badges />
+        
         {/* 
-          TODO: Future sections to add:
-          - Trust Score Dashboard
+          TODO: Future enhancements:
           - AI Assistant Chat Widget
-          - Gamification Leaderboard
-          - User Profile with Badges
-          - Points System Display
+          - Real-time Trust Score Dashboard
+          - User Profile Page
+          - Advanced Analytics
         */}
       </main>
       

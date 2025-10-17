@@ -83,23 +83,128 @@ html {
   background: #10b981;
 }
 
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #6ee7b7 50%, #48c6ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Stat card animations */
+.stat-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Article card hover effect */
+.article-card {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.article-card:hover {
+  box-shadow: 0 20px 40px rgba(110, 231, 183, 0.2);
+}
+
+/* Leaderboard card */
+.leaderboard-card {
+  animation: slideInLeft 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.leaderboard-card:hover {
+  background: rgba(30, 39, 64, 0.9);
+  transform: translateX(4px);
+}
+
+/* Badge card */
+.badge-card {
+  animation: scaleIn 0.5s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Trust Score pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.trust-score:hover {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* Scale hover effects */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
 /* 
   TODO: Future AI Integration Styles
   - Add styles for AI chat widget
-  - Trust Score progress bars
-  - Badge animations
+  - Real-time Trust Score updates
+  - Interactive verification flow
 */
 
 /* 
   TODO: Gamification UI Elements
-  - Points counter animation
-  - Level-up effects
-  - Achievement unlock modals
+  - Points counter with number animation
+  - Level-up celebration effects
+  - Achievement unlock modals with confetti
 */
 
 /* 
   TODO: Trust Score Visualization
   - Circular progress indicator
-  - Trust score badges
-  - Verification checkmarks
+  - Dynamic trust score badges
+  - Animated verification checkmarks
 */
