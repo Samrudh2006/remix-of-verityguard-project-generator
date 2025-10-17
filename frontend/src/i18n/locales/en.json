@@ -1,0 +1,106 @@
+{
+  "app_name": "VerityGuard",
+  "tagline": "AI-Powered Truth Verification",
+  "nav": {
+    "home": "Home",
+    "feed": "News Feed",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "admin": "Admin",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "Verify News. Fight Misinformation.",
+    "subtitle": "Join thousands of truth-seekers using AI-powered verification to combat fake news and earn rewards.",
+    "cta_primary": "Get Started",
+    "cta_secondary": "Learn More"
+  },
+  "auth": {
+    "login_title": "Welcome Back",
+    "signup_title": "Create Account",
+    "name": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "phone": "Phone Number (Optional)",
+    "login_button": "Sign In",
+    "signup_button": "Create Account",
+    "forgot_password": "Forgot Password?",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?"
+  },
+  "feed": {
+    "title": "News Feed",
+    "filter_all": "All",
+    "filter_verified": "Verified",
+    "filter_pending": "Pending",
+    "filter_unverified": "Unverified",
+    "trust_score": "Trust Score",
+    "read_more": "Read More",
+    "report": "Report",
+    "share": "Share",
+    "no_articles": "No articles found"
+  },
+  "article": {
+    "trust_score": "Trust Score",
+    "status_verified": "Verified ✅",
+    "status_pending": "Pending Review ⏳",
+    "status_unverified": "Unverified ⚠️",
+    "claims": "Claims",
+    "sources": "Sources",
+    "report_article": "Report Article",
+    "share_article": "Share Article",
+    "verified_by": "Verified by trusted sources"
+  },
+  "gamification": {
+    "points": "Points",
+    "rank": "Rank",
+    "badges": "Badges",
+    "leaderboard": "Leaderboard",
+    "bronze": "Bronze",
+    "silver": "Silver",
+    "gold": "Gold",
+    "platinum": "Platinum",
+    "verified_guardian": "Verified Guardian",
+    "earn_points": "Earn Points",
+    "next_rank": "Points to Next Rank"
+  },
+  "profile": {
+    "my_profile": "My Profile",
+    "statistics": "Statistics",
+    "recent_activity": "Recent Activity",
+    "my_badges": "My Badges",
+    "edit_profile": "Edit Profile"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "all_time": "All Time",
+    "rank": "Rank",
+    "user": "User",
+    "points": "Points",
+    "badges": "Badges"
+  },
+  "report": {
+    "title": "Report Article",
+    "evidence": "Provide Evidence",
+    "evidence_url": "Evidence URL (Optional)",
+    "submit": "Submit Report",
+    "cancel": "Cancel",
+    "success": "Report submitted successfully!"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search"
+  }
+}
