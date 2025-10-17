@@ -3,55 +3,415 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Remix of VerityGuard Project Generator</title>
-    <meta name="description" content="Live preview for the remix-of-verityguard-project-generator project." />
-    <style>
-      :root { color-scheme: light dark; }
-      html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
-      body { display: grid; place-items: center; padding: 2rem; background:
-        radial-gradient(1200px 600px at 10% -10%, #4f46e5 0, transparent 60%),
-        radial-gradient(800px 400px at 110% 10%, #06b6d4 0, transparent 60%),
-        radial-gradient(1000px 500px at 50% 120%, #22c55e 0, transparent 60%);
-      }
-      .card { max-width: 720px; width: 100%; background: rgba(255,255,255,0.75); backdrop-filter: blur(6px); border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: #111; }
-      @media (prefers-color-scheme: dark) {
-        .card { background: rgba(17,17,17,0.75); color: #f4f4f5; }
-        a { color: #93c5fd; }
-      }
-      h1 { margin-top: 0; font-size: 1.8rem; }
-      p { line-height: 1.6; }
-      .badges { display: flex; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 1rem; }
-      .badge { font-size: .8rem; background: #eef2ff; color: #3730a3; border-radius: 999px; padding: .3rem .7rem; }
-      .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
-      .btn { display: inline-block; padding: .7rem 1rem; border-radius: .6rem; text-decoration: none; font-weight: 600; }
-      .btn.primary { background: #4f46e5; color: white; }
-      .btn.secondary { background: #e2e8f0; color: #0f172a; }
-      footer { margin-top: 1.5rem; font-size: .9rem; opacity: .8; }
-      code { background: rgba(0,0,0,0.06); padding: .15rem .35rem; border-radius: .4rem; }
-    </style>
+    <title>VerityGuard Project Generator - Advanced Full-Stack Project Builder</title>
+    <meta name="description" content="Advanced project generator with 300+ features for rapid full-stack development" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="card" role="main">
-      <h1>Remix of VerityGuard Project Generator</h1>
-      <div class="badges">
-        <span class="badge">GitHub Pages</span>
-        <span class="badge">Static Site</span>
-        <span class="badge">No build needed</span>
-      </div>
-      <p>
-        This repository now has a simple static homepage to avoid 404 errors.
-        It is ready to be published with GitHub Pages so you can share a live preview link.
-      </p>
-      <p>
-        If you reached this page via the repository's Pages URL, publishing is working. You can replace this content with your app later.
-      </p>
-      <div class="actions">
-        <a class="btn primary" href="./">Home</a>
-        <a class="btn secondary" href="https://github.com/Samrudh2006/remix-of-verityguard-project-generator" rel="noopener noreferrer">View on GitHub</a>
-      </div>
-      <footer>
-        Tip: For single-page apps, keep the included <code>404.html</code> to handle deep-link refreshes on GitHub Pages.
+    <div id="app">
+      <header class="header">
+        <div class="container">
+          <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+              <path d="M20 10L28 16V24L20 30L12 24V16L20 10Z" fill="white" opacity="0.9"/>
+              <path d="M20 15L24 18V22L20 25L16 22V18L20 15Z" fill="#4f46e5"/>
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stop-color="#4f46e5"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <h1>VerityGuard</h1>
+          </div>
+          <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#templates">Templates</a>
+            <a href="#generator">Generator</a>
+            <a href="#docs">Docs</a>
+            <a href="https://github.com/Samrudh2006/remix-of-verityguard-project-generator" target="_blank">GitHub</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container">
+            <div class="hero-content">
+              <div class="badge-group">
+                <span class="badge">🚀 300+ Features</span>
+                <span class="badge">⚡ Lightning Fast</span>
+                <span class="badge">🔒 Enterprise Security</span>
+              </div>
+              <h2 class="hero-title">Advanced Full-Stack Project Generator</h2>
+              <p class="hero-description">
+                Generate production-ready projects with backend, frontend, authentication, database, CI/CD, 
+                and 300+ advanced features in seconds. Built for developers who ship fast.
+              </p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" onclick="scrollToGenerator()">Start Generating</button>
+                <button class="btn btn-secondary" onclick="showFeatures()">Explore Features</button>
+              </div>
+              <div class="stats">
+                <div class="stat">
+                  <div class="stat-value">300+</div>
+                  <div class="stat-label">Features</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">50+</div>
+                  <div class="stat-label">Templates</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">100%</div>
+                  <div class="stat-label">Production Ready</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features-section">
+          <div class="container">
+            <h2 class="section-title">Comprehensive Feature Set</h2>
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Modern Frontend</h3>
+                <p>React, Vue, Angular, Svelte with TypeScript, Tailwind CSS, and component libraries</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Robust Backend</h3>
+                <p>Node.js, Python, Go, Rust with Express, FastAPI, Gin, Actix frameworks</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🗄️</div>
+                <h3>Database Support</h3>
+                <p>PostgreSQL, MongoDB, MySQL, Redis with ORM/ODM integration</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Authentication</h3>
+                <p>JWT, OAuth2, SSO, 2FA, biometric auth, session management</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>CI/CD Pipeline</h3>
+                <p>GitHub Actions, GitLab CI, Jenkins, automated testing and deployment</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Monitoring</h3>
+                <p>Logging, metrics, APM, error tracking, performance monitoring</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🐳</div>
+                <h3>Containerization</h3>
+                <p>Docker, Kubernetes, Docker Compose, Helm charts</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Cloud Ready</h3>
+                <p>AWS, GCP, Azure deployment configs with IaC</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🧪</div>
+                <h3>Testing Suite</h3>
+                <p>Unit, integration, E2E tests with Jest, Pytest, Cypress</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Ready</h3>
+                <p>PWA support, responsive design, mobile-first approach</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Real-time Features</h3>
+                <p>WebSockets, Server-Sent Events, push notifications</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Documentation</h3>
+                <p>Auto-generated API docs, Storybook, interactive examples</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="generator" class="generator-section">
+          <div class="container">
+            <h2 class="section-title">Generate Your Project</h2>
+            <div class="generator-card">
+              <form id="projectForm" onsubmit="generateProject(event)">
+                <div class="form-section">
+                  <h3>Project Configuration</h3>
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label for="projectName">Project Name</label>
+                      <input type="text" id="projectName" placeholder="my-awesome-app" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="projectType">Project Type</label>
+                      <select id="projectType" required>
+                        <option value="fullstack">Full-Stack Application</option>
+                        <option value="frontend">Frontend Only</option>
+                        <option value="backend">Backend API</option>
+                        <option value="mobile">Mobile App</option>
+                        <option value="desktop">Desktop App</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Frontend Framework</h3>
+                  <div class="radio-grid">
+                    <label class="radio-card">
+                      <input type="radio" name="frontend" value="react" checked />
+                      <span class="radio-content">
+                        <strong>React</strong>
+                        <small>Popular, flexible</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="frontend" value="vue" />
+                      <span class="radio-content">
+                        <strong>Vue</strong>
+                        <small>Progressive, easy</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="frontend" value="angular" />
+                      <span class="radio-content">
+                        <strong>Angular</strong>
+                        <small>Full-featured</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="frontend" value="svelte" />
+                      <span class="radio-content">
+                        <strong>Svelte</strong>
+                        <small>Lightweight</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Backend Framework</h3>
+                  <div class="radio-grid">
+                    <label class="radio-card">
+                      <input type="radio" name="backend" value="express" checked />
+                      <span class="radio-content">
+                        <strong>Express.js</strong>
+                        <small>Node.js, fast</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="backend" value="fastapi" />
+                      <span class="radio-content">
+                        <strong>FastAPI</strong>
+                        <small>Python, modern</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="backend" value="gin" />
+                      <span class="radio-content">
+                        <strong>Gin</strong>
+                        <small>Go, performant</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="backend" value="spring" />
+                      <span class="radio-content">
+                        <strong>Spring Boot</strong>
+                        <small>Java, enterprise</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Database</h3>
+                  <div class="radio-grid">
+                    <label class="radio-card">
+                      <input type="radio" name="database" value="postgresql" checked />
+                      <span class="radio-content">
+                        <strong>PostgreSQL</strong>
+                        <small>Relational, robust</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="database" value="mongodb" />
+                      <span class="radio-content">
+                        <strong>MongoDB</strong>
+                        <small>NoSQL, flexible</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="database" value="mysql" />
+                      <span class="radio-content">
+                        <strong>MySQL</strong>
+                        <small>Relational, popular</small>
+                      </span>
+                    </label>
+                    <label class="radio-card">
+                      <input type="radio" name="database" value="redis" />
+                      <span class="radio-content">
+                        <strong>Redis</strong>
+                        <small>In-memory, fast</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-section">
+                  <h3>Advanced Features</h3>
+                  <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="auth" checked />
+                      <span>Authentication & Authorization</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="docker" checked />
+                      <span>Docker & Docker Compose</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="cicd" checked />
+                      <span>CI/CD Pipeline</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="testing" checked />
+                      <span>Testing Suite</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="monitoring" />
+                      <span>Monitoring & Logging</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="swagger" />
+                      <span>API Documentation</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="websockets" />
+                      <span>Real-time WebSockets</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="cache" />
+                      <span>Caching Layer</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="graphql" />
+                      <span>GraphQL API</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="microservices" />
+                      <span>Microservices Architecture</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="kubernetes" />
+                      <span>Kubernetes Deployment</span>
+                    </label>
+                    <label class="checkbox-item">
+                      <input type="checkbox" name="features" value="email" />
+                      <span>Email Service</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary btn-large">
+                    🚀 Generate Project
+                  </button>
+                  <button type="button" class="btn btn-secondary" onclick="downloadTemplate()">
+                    📥 Download Template
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="templates-section">
+          <div class="container">
+            <h2 class="section-title">Ready-Made Templates</h2>
+            <div class="templates-grid">
+              <div class="template-card">
+                <div class="template-header">
+                  <h3>E-Commerce Platform</h3>
+                  <span class="template-badge">Popular</span>
+                </div>
+                <p>Complete e-commerce solution with cart, checkout, payments, and admin panel</p>
+                <div class="template-tech">
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>PostgreSQL</span>
+                  <span>Stripe</span>
+                </div>
+                <button class="btn btn-secondary btn-small" onclick="useTemplate('ecommerce')">Use Template</button>
+              </div>
+              <div class="template-card">
+                <div class="template-header">
+                  <h3>SaaS Starter</h3>
+                  <span class="template-badge">New</span>
+                </div>
+                <p>Multi-tenant SaaS with subscriptions, billing, and team management</p>
+                <div class="template-tech">
+                  <span>Vue</span>
+                  <span>Python</span>
+                  <span>MongoDB</span>
+                  <span>Auth0</span>
+                </div>
+                <button class="btn btn-secondary btn-small" onclick="useTemplate('saas')">Use Template</button>
+              </div>
+              <div class="template-card">
+                <div class="template-header">
+                  <h3>Social Network</h3>
+                  <span class="template-badge">Featured</span>
+                </div>
+                <p>Social platform with posts, comments, likes, real-time chat, and notifications</p>
+                <div class="template-tech">
+                  <span>Angular</span>
+                  <span>Go</span>
+                  <span>Redis</span>
+                  <span>WebRTC</span>
+                </div>
+                <button class="btn btn-secondary btn-small" onclick="useTemplate('social')">Use Template</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h4>VerityGuard</h4>
+              <p>Advanced project generator for modern development</p>
+            </div>
+            <div class="footer-section">
+              <h4>Links</h4>
+              <a href="#features">Features</a>
+              <a href="#generator">Generator</a>
+              <a href="https://github.com/Samrudh2006/remix-of-verityguard-project-generator">GitHub</a>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <a href="docs.html">Documentation</a>
+              <a href="api.html">API Reference</a>
+              <a href="examples.html">Examples</a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>© 2025 VerityGuard Project Generator. Built with ❤️ for developers.</p>
+          </div>
+        </div>
       </footer>
-    </main>
+    </div>
+
+    <div id="notification" class="notification"></div>
+    <script src="app.js"></script>
   </body>
-  </html>
+</html>

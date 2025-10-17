@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API Reference - VerityGuard Project Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .api-container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+      .api-endpoint { background: white; padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+      .api-method { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.875rem; }
+      .api-method.get { background: #22c55e; color: white; }
+      .api-method.post { background: #3b82f6; color: white; }
+      .api-method.put { background: #f59e0b; color: white; }
+      .api-method.delete { background: #ef4444; color: white; }
+      .api-path { font-family: 'Courier New', monospace; font-size: 1.125rem; margin-left: 1rem; }
+      pre { background: var(--gray-900); color: #fff; padding: 1.5rem; border-radius: 0.75rem; overflow-x: auto; margin: 1rem 0; }
+      .param-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+      .param-table th, .param-table td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+      .param-table th { background: var(--gray-100); font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+              <path d="M20 10L28 16V24L20 30L12 24V16L20 10Z" fill="white" opacity="0.9"/>
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stop-color="#4f46e5"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <h1>VerityGuard</h1>
+          </a>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="docs.html">Docs</a>
+          <a href="api.html">API</a>
+          <a href="examples.html">Examples</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="api-container">
+      <h1>API Reference</h1>
+      <p>Complete API documentation for VerityGuard generated projects.</p>
+
+      <h2>Authentication</h2>
+      
+      <div class="api-endpoint">
+        <div><span class="api-method post">POST</span><span class="api-path">/api/auth/register</span></div>
+        <p>Register a new user account.</p>
+        <h4>Request Body</h4>
+        <table class="param-table">
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>email</td><td>string</td><td>Yes</td><td>User email address</td></tr>
+            <tr><td>password</td><td>string</td><td>Yes</td><td>User password (min 8 characters)</td></tr>
+            <tr><td>name</td><td>string</td><td>No</td><td>User full name</td></tr>
+          </tbody>
+        </table>
+        <h4>Response</h4>
+        <pre>{
+  "success": true,
+  "data": {
+    "user": {
+      "id": "123",
+      "email": "user@example.com",
+      "name": "John Doe"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIs..."
+  }
+}</pre>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method post">POST</span><span class="api-path">/api/auth/login</span></div>
+        <p>Authenticate user and receive JWT token.</p>
+        <h4>Request Body</h4>
+        <table class="param-table">
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>email</td><td>string</td><td>Yes</td><td>User email</td></tr>
+            <tr><td>password</td><td>string</td><td>Yes</td><td>User password</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method get">GET</span><span class="api-path">/api/auth/me</span></div>
+        <p>Get current authenticated user information.</p>
+        <h4>Headers</h4>
+        <pre>Authorization: Bearer {token}</pre>
+      </div>
+
+      <h2>Users</h2>
+
+      <div class="api-endpoint">
+        <div><span class="api-method get">GET</span><span class="api-path">/api/users</span></div>
+        <p>Get list of all users (admin only).</p>
+        <h4>Query Parameters</h4>
+        <table class="param-table">
+          <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>page</td><td>number</td><td>1</td><td>Page number</td></tr>
+            <tr><td>limit</td><td>number</td><td>10</td><td>Items per page</td></tr>
+            <tr><td>sort</td><td>string</td><td>-createdAt</td><td>Sort field</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method get">GET</span><span class="api-path">/api/users/:id</span></div>
+        <p>Get user by ID.</p>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method put">PUT</span><span class="api-path">/api/users/:id</span></div>
+        <p>Update user information.</p>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method delete">DELETE</span><span class="api-path">/api/users/:id</span></div>
+        <p>Delete user account.</p>
+      </div>
+
+      <h2>Projects</h2>
+
+      <div class="api-endpoint">
+        <div><span class="api-method get">GET</span><span class="api-path">/api/projects</span></div>
+        <p>Get all projects for the authenticated user.</p>
+      </div>
+
+      <div class="api-endpoint">
+        <div><span class="api-method post">POST</span><span class="api-path">/api/projects</span></div>
+        <p>Create a new project.</p>
+        <h4>Request Body</h4>
+        <pre>{
+  "name": "My Project",
+  "description": "Project description",
+  "type": "fullstack",
+  "frontend": "react",
+  "backend": "express",
+  "database": "postgresql",
+  "features": ["auth", "docker", "testing"]
+}</pre>
+      </div>
+
+      <h2>Error Responses</h2>
+      <div class="api-endpoint">
+        <h4>400 Bad Request</h4>
+        <pre>{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid request data",
+    "details": [...]
+  }
+}</pre>
+        
+        <h4>401 Unauthorized</h4>
+        <pre>{
+  "success": false,
+  "error": {
+    "code": "UNAUTHORIZED",
+    "message": "Authentication required"
+  }
+}</pre>
+
+        <h4>403 Forbidden</h4>
+        <pre>{
+  "success": false,
+  "error": {
+    "code": "FORBIDDEN",
+    "message": "Insufficient permissions"
+  }
+}</pre>
+
+        <h4>404 Not Found</h4>
+        <pre>{
+  "success": false,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Resource not found"
+  }
+}</pre>
+
+        <h4>500 Internal Server Error</h4>
+        <pre>{
+  "success": false,
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "An unexpected error occurred"
+  }
+}</pre>
+      </div>
+
+      <h2>Rate Limiting</h2>
+      <p>API requests are rate-limited to prevent abuse:</p>
+      <ul>
+        <li>Authenticated requests: 1000 requests per hour</li>
+        <li>Unauthenticated requests: 100 requests per hour</li>
+        <li>Login attempts: 5 requests per 15 minutes</li>
+      </ul>
+
+      <h2>WebSocket Events</h2>
+      <div class="api-endpoint">
+        <h4>Connection</h4>
+        <pre>const socket = io('ws://localhost:5000', {
+  auth: { token: 'your-jwt-token' }
+});</pre>
+
+        <h4>Events</h4>
+        <pre>// Listen for updates
+socket.on('project:updated', (data) => {
+  console.log('Project updated:', data);
+});
+
+// Emit events
+socket.emit('project:watch', { projectId: '123' });</pre>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p style="text-align: center;">© 2025 VerityGuard Project Generator</p>
+      </div>
+    </footer>
+  </body>
+</html>
