@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "feed": "Feed",
+    "profile": "Profile",
+    "admin": "Admin",
+    "leaderboard": "Leaderboard"
+  },
+  "hero": {
+    "title": "VerityGuard",
+    "subtitle": "AI-Powered Fact Verification Platform",
+    "description": "Revolutionizing truth verification with advanced machine learning and community-driven validation",
+    "cta": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "title": "Why VerityGuard?",
+    "aiVerification": {
+      "title": "AI Verification",
+      "description": "Advanced machine learning models analyze claims for accuracy"
+    },
+    "gamification": {
+      "title": "Gamification",
+      "description": "Earn points, badges, and climb the leaderboard"
+    },
+    "realtime": {
+      "title": "Real-Time Analysis",
+      "description": "Instant verification with live updates and notifications"
+    },
+    "community": {
+      "title": "Community Driven",
+      "description": "Collaborative fact-checking with transparent verification"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 VerityGuard. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Toggle theme"
+  }
+}

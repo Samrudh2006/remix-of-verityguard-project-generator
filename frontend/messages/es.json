@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "feed": "Feed",
+    "profile": "Perfil",
+    "admin": "Admin",
+    "leaderboard": "Tabla de clasificación"
+  },
+  "hero": {
+    "title": "VerityGuard",
+    "subtitle": "Plataforma de verificación de hechos impulsada por IA",
+    "description": "Revolucionando la verificación de la verdad con aprendizaje automático avanzado y validación impulsada por la comunidad",
+    "cta": "Empezar",
+    "learnMore": "Más información"
+  },
+  "features": {
+    "title": "¿Por qué VerityGuard?",
+    "aiVerification": {
+      "title": "Verificación IA",
+      "description": "Modelos avanzados de aprendizaje automático analizan las afirmaciones de precisión"
+    },
+    "gamification": {
+      "title": "Gamificación",
+      "description": "Gana puntos, insignias y sube en la tabla de clasificación"
+    },
+    "realtime": {
+      "title": "Análisis en tiempo real",
+      "description": "Verificación instantánea con actualizaciones en vivo y notificaciones"
+    },
+    "community": {
+      "title": "Impulsado por la comunidad",
+      "description": "Verificación de hechos colaborativa con verificación transparente"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 VerityGuard. Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "toggle": "Cambiar tema"
+  }
+}
