@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Remix of VerityGuard Project Generator</title>
+    <meta name="description" content="Live preview for the remix-of-verityguard-project-generator project." />
+    <style>
+      :root { color-scheme: light dark; }
+      html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
+      body { display: grid; place-items: center; padding: 2rem; background:
+        radial-gradient(1200px 600px at 10% -10%, #4f46e5 0, transparent 60%),
+        radial-gradient(800px 400px at 110% 10%, #06b6d4 0, transparent 60%),
+        radial-gradient(1000px 500px at 50% 120%, #22c55e 0, transparent 60%);
+      }
+      .card { max-width: 720px; width: 100%; background: rgba(255,255,255,0.75); backdrop-filter: blur(6px); border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); color: #111; }
+      @media (prefers-color-scheme: dark) {
+        .card { background: rgba(17,17,17,0.75); color: #f4f4f5; }
+        a { color: #93c5fd; }
+      }
+      h1 { margin-top: 0; font-size: 1.8rem; }
+      p { line-height: 1.6; }
+      .badges { display: flex; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 1rem; }
+      .badge { font-size: .8rem; background: #eef2ff; color: #3730a3; border-radius: 999px; padding: .3rem .7rem; }
+      .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+      .btn { display: inline-block; padding: .7rem 1rem; border-radius: .6rem; text-decoration: none; font-weight: 600; }
+      .btn.primary { background: #4f46e5; color: white; }
+      .btn.secondary { background: #e2e8f0; color: #0f172a; }
+      footer { margin-top: 1.5rem; font-size: .9rem; opacity: .8; }
+      code { background: rgba(0,0,0,0.06); padding: .15rem .35rem; border-radius: .4rem; }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <h1>Remix of VerityGuard Project Generator</h1>
+      <div class="badges">
+        <span class="badge">GitHub Pages</span>
+        <span class="badge">Static Site</span>
+        <span class="badge">No build needed</span>
+      </div>
+      <p>
+        This repository now has a simple static homepage to avoid 404 errors.
+        It is ready to be published with GitHub Pages so you can share a live preview link.
+      </p>
+      <p>
+        If you reached this page via the repository's Pages URL, publishing is working. You can replace this content with your app later.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="./">Home</a>
+        <a class="btn secondary" href="https://github.com/Samrudh2006/remix-of-verityguard-project-generator" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+      <footer>
+        Tip: For single-page apps, keep the included <code>404.html</code> to handle deep-link refreshes on GitHub Pages.
+      </footer>
+    </main>
+  </body>
+  </html>

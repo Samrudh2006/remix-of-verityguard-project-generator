@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="0; url=/remix-of-verityguard-project-generator/" />
+    <script>
+      (function() {
+        // GitHub Pages SPA redirect: send unknown routes back to base URL
+        var base = '/remix-of-verityguard-project-generator/';
+        var next = base;
+        try {
+          var path = window.location.pathname || '';
+          // If this is a project site under username.github.io/repo, trim until repo name
+          var idx = path.indexOf(base);
+          if (idx >= 0) {
+            var rest = path.slice(idx + base.length);
+            if (rest && rest !== '/') next = base + '#!/' + rest + window.location.search + window.location.hash;
+          }
+        } catch (e) {}
+        window.location.replace(next);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/remix-of-verityguard-project-generator/">home</a>…</p>
+  </body>
+  </html>
