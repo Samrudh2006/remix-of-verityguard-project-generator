@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentation - VerityGuard Project Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .docs-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 3rem;
+      }
+      .docs-sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+      }
+      .docs-sidebar a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--gray-700);
+        text-decoration: none;
+        border-radius: 0.5rem;
+        transition: all 0.2s;
+      }
+      .docs-sidebar a:hover {
+        background: var(--gray-100);
+        color: var(--primary);
+      }
+      .docs-content {
+        min-height: 100vh;
+      }
+      .docs-content h2 {
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--gray-200);
+      }
+      .docs-content h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      .docs-content pre {
+        background: var(--gray-900);
+        color: #fff;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+      .docs-content code {
+        background: var(--gray-100);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.3rem;
+        font-family: 'Courier New', monospace;
+      }
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .feature-item {
+        padding: 1rem;
+        background: var(--gray-50);
+        border-radius: 0.5rem;
+        border-left: 3px solid var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+              <path d="M20 10L28 16V24L20 30L12 24V16L20 10Z" fill="white" opacity="0.9"/>
+              <path d="M20 15L24 18V22L20 25L16 22V18L20 15Z" fill="#4f46e5"/>
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stop-color="#4f46e5"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <h1>VerityGuard</h1>
+          </a>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="docs.html">Docs</a>
+          <a href="api.html">API</a>
+          <a href="examples.html">Examples</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="docs-container">
+      <aside class="docs-sidebar">
+        <h3>Documentation</h3>
+        <a href="#getting-started">Getting Started</a>
+        <a href="#features">Features</a>
+        <a href="#frontend">Frontend</a>
+        <a href="#backend">Backend</a>
+        <a href="#database">Database</a>
+        <a href="#deployment">Deployment</a>
+        <a href="#testing">Testing</a>
+        <a href="#security">Security</a>
+        <a href="#performance">Performance</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+      </aside>
+
+      <main class="docs-content">
+        <h1>VerityGuard Documentation</h1>
+        <p>Complete guide to using the VerityGuard Project Generator with 300+ features.</p>
+
+        <h2 id="getting-started">Getting Started</h2>
+        <p>VerityGuard is an advanced project generator that creates production-ready full-stack applications with comprehensive features including authentication, database integration, CI/CD pipelines, and much more.</p>
+        
+        <h3>Quick Start</h3>
+        <ol>
+          <li>Visit the <a href="index.html#generator">Project Generator</a></li>
+          <li>Configure your project settings</li>
+          <li>Select frontend and backend frameworks</li>
+          <li>Choose your database</li>
+          <li>Enable advanced features</li>
+          <li>Generate and download your project</li>
+        </ol>
+
+        <h3>Installation</h3>
+        <pre>npm install -g verityguard-generator
+verityguard init my-project
+cd my-project
+npm install
+npm run dev</pre>
+
+        <h2 id="features">300+ Advanced Features</h2>
+        <p>VerityGuard includes comprehensive features for modern application development:</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <strong>Authentication</strong>
+            <ul>
+              <li>JWT tokens</li>
+              <li>OAuth2 integration</li>
+              <li>2FA support</li>
+              <li>Session management</li>
+              <li>Role-based access</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <strong>Database</strong>
+            <ul>
+              <li>PostgreSQL support</li>
+              <li>MongoDB integration</li>
+              <li>MySQL compatibility</li>
+              <li>Redis caching</li>
+              <li>Migration tools</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <strong>API Features</strong>
+            <ul>
+              <li>RESTful API</li>
+              <li>GraphQL support</li>
+              <li>WebSocket real-time</li>
+              <li>API versioning</li>
+              <li>Rate limiting</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <strong>Frontend</strong>
+            <ul>
+              <li>React/Vue/Angular</li>
+              <li>TypeScript</li>
+              <li>Tailwind CSS</li>
+              <li>Component libraries</li>
+              <li>State management</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <strong>DevOps</strong>
+            <ul>
+              <li>Docker support</li>
+              <li>Kubernetes configs</li>
+              <li>CI/CD pipelines</li>
+              <li>Automated testing</li>
+              <li>Deployment scripts</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <strong>Monitoring</strong>
+            <ul>
+              <li>Application logs</li>
+              <li>Performance metrics</li>
+              <li>Error tracking</li>
+              <li>Health checks</li>
+              <li>Analytics</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 id="frontend">Frontend Development</h2>
+        <p>VerityGuard supports multiple modern frontend frameworks with best practices built-in.</p>
+
+        <h3>React Projects</h3>
+        <pre>// Example React component
+import React from 'react';
+
+export const Dashboard = () => {
+  return (
+    &lt;div className="dashboard"&gt;
+      &lt;h1&gt;Welcome to Your App&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+};</pre>
+
+        <h3>Vue Projects</h3>
+        <pre>// Example Vue component
+&lt;template&gt;
+  &lt;div class="dashboard"&gt;
+    &lt;h1&gt;Welcome to Your App&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+// Component logic
+&lt;/script&gt;</pre>
+
+        <h2 id="backend">Backend Development</h2>
+        <p>Choose from multiple backend frameworks with built-in best practices.</p>
+
+        <h3>Express.js (Node.js)</h3>
+        <pre>// Example Express route
+import express from 'express';
+
+const router = express.Router();
+
+router.get('/api/users', async (req, res) => {
+  const users = await User.findAll();
+  res.json(users);
+});
+
+export default router;</pre>
+
+        <h3>FastAPI (Python)</h3>
+        <pre># Example FastAPI route
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/api/users")
+async def get_users():
+    users = await User.find_all()
+    return users</pre>
+
+        <h2 id="database">Database Setup</h2>
+        <p>Integrated database support with migrations and seeding.</p>
+
+        <h3>PostgreSQL</h3>
+        <pre>-- Example migration
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</pre>
+
+        <h3>MongoDB</h3>
+        <pre>// Example schema
+const userSchema = new Schema({
+  email: { type: String, required: true, unique: true },
+  passwordHash: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});</pre>
+
+        <h2 id="deployment">Deployment</h2>
+        <p>Deploy your application to various platforms with included configurations.</p>
+
+        <h3>Docker Deployment</h3>
+        <pre>docker-compose up -d</pre>
+
+        <h3>Kubernetes Deployment</h3>
+        <pre>kubectl apply -f k8s/
+kubectl get pods</pre>
+
+        <h2 id="testing">Testing</h2>
+        <p>Comprehensive testing setup included.</p>
+
+        <h3>Unit Tests</h3>
+        <pre>npm run test:unit</pre>
+
+        <h3>Integration Tests</h3>
+        <pre>npm run test:integration</pre>
+
+        <h3>E2E Tests</h3>
+        <pre>npm run test:e2e</pre>
+
+        <h2 id="security">Security</h2>
+        <p>Built-in security features and best practices.</p>
+        <ul>
+          <li>HTTPS enforcement</li>
+          <li>CORS configuration</li>
+          <li>Helmet.js security headers</li>
+          <li>Rate limiting</li>
+          <li>Input validation</li>
+          <li>SQL injection prevention</li>
+          <li>XSS protection</li>
+          <li>CSRF tokens</li>
+        </ul>
+
+        <h2 id="performance">Performance</h2>
+        <p>Optimized for production performance.</p>
+        <ul>
+          <li>Redis caching</li>
+          <li>Database indexing</li>
+          <li>CDN integration</li>
+          <li>Code splitting</li>
+          <li>Lazy loading</li>
+          <li>Compression</li>
+        </ul>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+        <p>Common issues and solutions.</p>
+
+        <h3>Port Already in Use</h3>
+        <pre>ERROR: Port 3000 is already in use
+
+Solution: Change the port in .env file or kill the process:
+lsof -ti:3000 | xargs kill -9</pre>
+
+        <h3>Database Connection Failed</h3>
+        <pre>ERROR: Could not connect to database
+
+Solution: Check your DATABASE_URL in .env and ensure the database is running:
+docker-compose up database</pre>
+
+        <h3>Build Errors</h3>
+        <pre>ERROR: Build failed
+
+Solution: Clear cache and rebuild:
+rm -rf node_modules dist
+npm install
+npm run build</pre>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>VerityGuard</h4>
+            <p>Advanced project generator</p>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <a href="docs.html">Documentation</a>
+            <a href="api.html">API Reference</a>
+            <a href="examples.html">Examples</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
