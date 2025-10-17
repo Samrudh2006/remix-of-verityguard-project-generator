@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#8b5cf6" opacity="0.1"/>
+  
+  <!-- Shield shape -->
+  <path d="M 100 30 L 160 50 L 160 100 Q 160 150 100 170 Q 40 150 40 100 L 40 50 Z" 
+        fill="#8b5cf6" 
+        stroke="#6d28d9" 
+        stroke-width="3"/>
+  
+  <!-- Checkmark -->
+  <path d="M 70 100 L 90 120 L 130 70" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Inner glow effect -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.3"/>
+</svg>
