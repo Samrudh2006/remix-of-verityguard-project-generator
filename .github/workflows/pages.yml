@@ -35,6 +35,9 @@ jobs:
         env:
           CI: false
 
+      - name: Create SPA 404 fallback
+        run: cp build/index.html build/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

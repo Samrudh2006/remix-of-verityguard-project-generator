@@ -135,6 +135,7 @@ function Articles() {
                   src={article.image} 
                   alt={article.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                   onError={(e) => e.target.src = 'https://via.placeholder.com/400x250/1e2740/6ee7b7?text=VerityGuard'}
                 />
                 <div className="absolute top-3 right-3">

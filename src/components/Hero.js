@@ -14,7 +14,7 @@ function Hero() {
   ];
 
   return (
-    <section id="home" className="pt-32 pb-20 px-4 min-h-screen flex items-center bg-gradient-to-b from-dark via-dark to-dark-light">
+    <section id="home" className="pt-32 pb-20 px-4 min-h-screen flex items-center bg-gradient-to-b from-dark via-dark to-dark-light scroll-mt-24">
       <div className="container mx-auto">
         {/* Main Hero Content */}
         <div className="text-center mb-16 space-y-6">

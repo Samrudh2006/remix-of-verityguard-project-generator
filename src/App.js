@@ -6,6 +6,7 @@ import Articles from './components/Articles';
 import Leaderboard from './components/Leaderboard';
 import Badges from './components/Badges';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
       
       {/* Footer */}
       <Footer />
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
