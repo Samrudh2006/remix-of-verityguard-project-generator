@@ -48,6 +48,12 @@ function Header() {
             >
               Badges
             </button>
+            <button
+              onClick={() => scrollToSection('submission')}
+              className="text-white hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Outline
+            </button>
             <button className="px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all">
               header.login
             </button>
@@ -95,6 +101,12 @@ function Header() {
               className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
             >
               Badges
+            </button>
+            <button
+              onClick={() => scrollToSection('submission')}
+              className="block w-full text-left text-white hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Outline
             </button>
             <button className="w-full px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:shadow-lg transition-all">
               header.login

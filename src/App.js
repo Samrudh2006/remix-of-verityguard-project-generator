@@ -7,6 +7,7 @@ import Leaderboard from './components/Leaderboard';
 import Badges from './components/Badges';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import Submission from './components/Submission';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         
         {/* Badges & Achievements */}
         <Badges />
+        
+        {/* Submission outline for challenge */}
+        <Submission />
         
         {/* 
           TODO: Future enhancements:
