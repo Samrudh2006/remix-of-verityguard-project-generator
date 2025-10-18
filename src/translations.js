@@ -14,6 +14,10 @@ export const languages = [
 ];
 
 const baseTranslations = {
+  // Status Badges
+  'status.verified': { en: 'Verified', hi: 'वेरिफाइड', es: 'Verificado', fr: 'Vérifié', de: 'Verifiziert', ar: 'موثّق', bn: 'যাচাইকৃত', ta: 'சரிபார்க்கப்பட்டது', te: 'ధృవీకరించబడింది' },
+  'status.partial': { en: 'Partially Verified', hi: 'आंशिक रूप से सत्यापित', es: 'Parcialmente Verificado', fr: 'Partiellement Vérifié', de: 'Teilweise Verifiziert', ar: 'موثّق جزئياً', bn: 'আংশিকভাবে যাচাইকৃত', ta: 'பகுதியளவு சரிபார்க்கப்பட்டது', te: 'భాగంగా ధృవీకరించబడింది' },
+  'status.false': { en: 'False', hi: 'गलत', es: 'Falso', fr: 'Faux', de: 'Falsch', ar: 'زائف', bn: 'ভুল', ta: 'தவறு', te: 'తప్పుడు' },
   // Navigation
   'nav.home': { en: 'Home', hi: 'होम', es: 'Inicio', fr: 'Accueil', de: 'Startseite', ar: 'الرئيسية', bn: 'হোম', ta: 'முகப்பு', te: 'హోమ్' },
   'nav.articles': { en: 'Articles', hi: 'लेख', es: 'Artículos', fr: 'Articles', de: 'Artikel', ar: 'المقالات', bn: 'নিবন্ধ', ta: 'கட்டுரைகள்', te: 'వ్యాసాలు' },

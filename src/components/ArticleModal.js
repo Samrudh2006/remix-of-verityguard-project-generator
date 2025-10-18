@@ -2,7 +2,7 @@ import React from 'react';
 import { useI18n } from '../i18n';
 
 export default function ArticleModal({ open, onClose, article }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   if (!open || !article) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -20,19 +20,19 @@ export default function ArticleModal({ open, onClose, article }) {
         </button>
 
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold">{article.title}</h3>
+          <h3 className="text-2xl font-bold">{(article.title && typeof article.title === 'object') ? (article.title[lang] || article.title.en) : article.title}</h3>
           <div className="text-sm text-gray-400">
-            <span className="font-medium">{article.source}</span> • {article.time}
+            <span className="font-medium">{article.source}</span> • {(article.time && typeof article.time === 'object') ? (article.time[lang] || article.time.en) : article.time}
           </div>
           <img
             src={article.image}
-            alt={article.title}
+            alt={(article.title && typeof article.title === 'object') ? (article.title[lang] || article.title.en) : article.title}
             className="w-full h-64 object-cover rounded-lg"
             loading="lazy"
             onError={(e) => (e.target.src = 'https://via.placeholder.com/800x400/1e2740/6ee7b7?text=VerityGuard')}
           />
           <p className="text-gray-300 leading-relaxed">
-            {article.excerpt} This is placeholder extended content for the article. In the future, attach
+            {(article.excerpt && typeof article.excerpt === 'object') ? (article.excerpt[lang] || article.excerpt.en) : article.excerpt} This is placeholder extended content for the article. In the future, attach
             the full text, citations, and verification reasoning here.
           </p>
 

@@ -7,7 +7,7 @@ import { locationArticles } from '../data/articles';
 import LocationPicker from './LocationPicker';
 
 function Articles() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const { location } = useLocation();
   const { isAuthenticated } = useAuth();
   const [activeTab, setActiveTab] = useState('all');
@@ -58,9 +58,9 @@ function Articles() {
 
   const getStatusBadge = (status) => {
     const badges = {
-      verified: { text: 'Verified', color: 'bg-green-500/20 text-green-400 border-green-500/50' },
-      partial: { text: 'Partially Verified', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50' },
-      false: { text: 'False', color: 'bg-red-500/20 text-red-400 border-red-500/50' },
+      verified: { text: t('status.verified'), color: 'bg-green-500/20 text-green-400 border-green-500/50' },
+      partial: { text: t('status.partial'), color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50' },
+      false: { text: t('status.false'), color: 'bg-red-500/20 text-red-400 border-red-500/50' },
     };
     const badge = badges[status] || badges.verified;
     return (
@@ -149,7 +149,7 @@ function Articles() {
               <div className="relative h-48 overflow-hidden bg-dark-lighter">
                 <img 
                   src={article.image} 
-                  alt={article.title}
+                  alt={(article.title && typeof article.title === 'object') ? (article.title[lang] || article.title.en) : article.title}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   onError={(e) => e.target.src = 'https://via.placeholder.com/400x250/1e2740/6ee7b7?text=VerityGuard'}
@@ -168,16 +168,16 @@ function Articles() {
               {/* Article Content */}
               <div className="p-5 space-y-3">
                 <h3 className="text-lg font-bold line-clamp-2 hover:text-primary transition-colors">
-                  {article.title}
+                  {(article.title && typeof article.title === 'object') ? (article.title[lang] || article.title.en) : article.title}
                 </h3>
                 
                 <p className="text-gray-400 text-sm line-clamp-2">
-                  {article.excerpt}
+                  {(article.excerpt && typeof article.excerpt === 'object') ? (article.excerpt[lang] || article.excerpt.en) : article.excerpt}
                 </p>
 
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <span className="font-medium">{article.source}</span>
-                  <span>• {article.time}</span>
+                  <span>• {(article.time && typeof article.time === 'object') ? (article.time[lang] || article.time.en) : article.time}</span>
                 </div>
 
                 {/* Trust Score */}
