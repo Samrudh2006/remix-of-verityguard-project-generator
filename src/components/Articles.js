@@ -1,74 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import ArticleModal from './ArticleModal';
 import { useI18n } from '../i18n';
+import { useLocation } from '../contexts/LocationContext';
+import { locationArticles } from '../data/articles';
+import LocationPicker from './LocationPicker';
 
 function Articles() {
   const { t } = useI18n();
+  const { location } = useLocation();
   const [activeTab, setActiveTab] = useState('all');
   const [selected, setSelected] = useState(null);
+  const [showLocationPicker, setShowLocationPicker] = useState(false);
 
-  const articles = [
-    {
-      id: 1,
-      title: 'Breakthrough in Renewable Energy: New Solar Panel Efficiency Reaches 47%',
-      source: 'Science Daily',
-      time: 'about 2 hours ago',
-      trustScore: 92,
-      status: 'verified',
-      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=250&fit=crop',
-      excerpt: 'Researchers at MIT have developed a revolutionary solar panel design that achieves unprecedented 47% efficiency, marking a major...'
-    },
-    {
-      id: 2,
-      title: 'Global Summit Reaches Historic Climate Agreement',
-      source: 'Reuters',
-      time: 'about 5 hours ago',
-      trustScore: 88,
-      status: 'verified',
-      image: 'https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=400&h=250&fit=crop',
-      excerpt: 'World leaders have signed a landmark climate agreement at the UN summit, committing to carbon neutrality by 2040. The accord includes...'
-    },
-    {
-      id: 3,
-      title: 'Tech Giant Announces Revolutionary AI Chip',
-      source: 'TechCrunch',
-      time: 'about 8 hours ago',
-      trustScore: 72,
-      status: 'partial',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop',
-      excerpt: 'A major technology company unveiled its latest AI processor, claiming 10x performance improvements over current generation chips....'
-    },
-    {
-      id: 4,
-      title: 'New Study Links Coffee Consumption to Extended Lifespan',
-      source: 'Health Today',
-      time: 'about 12 hours ago',
-      trustScore: 85,
-      status: 'verified',
-      image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=250&fit=crop',
-      excerpt: 'Recent research suggests moderate coffee consumption may contribute to longevity and reduced disease risk...'
-    },
-    {
-      id: 5,
-      title: 'Viral Video Claims Show Fake Moon Landing Evidence',
-      source: 'Social Media',
-      time: 'about 1 day ago',
-      trustScore: 15,
-      status: 'false',
-      image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=250&fit=crop',
-      excerpt: 'A widely circulated video alleges evidence of staged moon landings, but fact-checkers have debunked these claims...'
-    },
-    {
-      id: 6,
-      title: 'Economic Recovery Accelerates in Major Markets',
-      source: 'Financial Times',
-      time: 'about 1 day ago',
-      trustScore: 90,
-      status: 'verified',
-      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop',
-      excerpt: 'Global economic indicators show strong recovery momentum across developed markets, with GDP growth exceeding forecasts...'
-    },
-  ];
+  // Filter articles based on user's location
+  const filteredArticles = useMemo(() => {
+    if (!location) {
+      // No location set - show only national news
+      return locationArticles.filter((a) => a.location.scope === 'national');
+    }
+
+    // Show local + state + national news based on user location
+    return locationArticles.filter((article) => {
+      const { scope, state, city } = article.location;
+
+      // Always show national news
+      if (scope === 'national') return true;
+
+      // Show state news if user's state matches
+      if (scope === 'state' && state === location.state) return true;
+
+      // Show local news if city matches (or state matches if no city specified)
+      if (scope === 'local') {
+        if (city && location.city && city === location.city) return true;
+        if (!city && state === location.state) return true;
+      }
+
+      return false;
+    });
+  }, [location]);
+
+  const articles = filteredArticles;
 
   const getScoreColor = (score) => {
     if (score >= 80) return 'from-cyan-400 to-cyan-600';
@@ -95,13 +66,32 @@ function Articles() {
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-4xl font-bold">{t('articles.title')}</h2>
-          <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-            </svg>
-            {t('articles.filters')}
-          </button>
+          <div>
+            <h2 className="text-4xl font-bold">{t('articles.title')}</h2>
+            {location && (
+              <div className="mt-2 text-sm text-white/70">
+                📍 {t('location.showingFor')} <span className="text-primary font-semibold">{location.city && `${location.city}, `}{location.stateName || location.state}</span>
+              </div>
+            )}
+          </div>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setShowLocationPicker(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {location ? t('location.change') : t('location.set')}
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+              {t('articles.filters')}
+            </button>
+          </div>
         </div>
 
         {/* Tabs */}
@@ -192,6 +182,9 @@ function Articles() {
 
       {/* Modal */}
       <ArticleModal open={!!selected} article={selected} onClose={() => setSelected(null)} />
+      
+      {/* Location Picker Modal */}
+      {showLocationPicker && <LocationPicker onClose={() => setShowLocationPicker(false)} />}
     </section>
   );
 }
