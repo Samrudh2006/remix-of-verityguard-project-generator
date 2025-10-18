@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ArticleModal from './ArticleModal';
+import { useI18n } from '../i18n';
 
 function Articles() {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = useState('all');
   const [selected, setSelected] = useState(null);
 
@@ -93,12 +95,12 @@ function Articles() {
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-4xl font-bold">Latest Articles</h2>
+          <h2 className="text-4xl font-bold">{t('articles.title')}</h2>
           <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
             </svg>
-            Filters
+            {t('articles.filters')}
           </button>
         </div>
 
@@ -118,7 +120,7 @@ function Articles() {
               {tab === 'trending' && '📈 '}
               {tab === 'recent' && '🕐 '}
               {tab === 'verified' && '⭐ '}
-              {tab}
+              {t(`tabs.${tab}`)}
             </button>
           ))}
         </div>
@@ -148,7 +150,7 @@ function Articles() {
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
-                  <span className="text-sm text-primary font-semibold">Trust Shield</span>
+                  <span className="text-sm text-primary font-semibold">{t('label.trustShield')}</span>
                 </div>
               </div>
 
@@ -170,7 +172,7 @@ function Articles() {
                 {/* Trust Score */}
                 <div className="pt-3 border-t border-white/10">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-gray-400">TRUST SCORE</span>
+                    <span className="text-sm font-semibold text-gray-400">{t('label.trustScore')}</span>
                     <span className={`text-3xl font-bold bg-gradient-to-r ${getScoreColor(article.trustScore)} bg-clip-text text-transparent`}>
                       {article.trustScore}%
                     </span>

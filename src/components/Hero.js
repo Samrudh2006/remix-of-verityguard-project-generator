@@ -1,17 +1,19 @@
 import React from 'react';
 import TrustGauge from './TrustGauge';
+import { useI18n } from '../i18n';
 
 function Hero() {
+  const { t } = useI18n();
   const handleGetStarted = () => {
     // TODO: Add authentication flow or redirect to dashboard
     console.log('Get Started clicked - Redirect to sign up');
   };
 
   const stats = [
-    { icon: '🛡️', value: '1.2M+', label: 'Articles Verified', color: 'from-cyan-400 to-cyan-600' },
-    { icon: '📈', value: '94.8%', label: 'Accuracy Rate', color: 'from-purple-400 to-purple-600' },
-    { icon: '🌐', value: '50+', label: 'Languages', color: 'from-green-400 to-green-600' },
-    { icon: '⚡', value: '250K+', label: 'Active Users', color: 'from-blue-400 to-blue-600' },
+    { icon: '🛡️', value: '1.2M+', label: t('hero.stats.articles'), color: 'from-cyan-400 to-cyan-600' },
+    { icon: '📈', value: '94.8%', label: t('hero.stats.accuracy'), color: 'from-purple-400 to-purple-600' },
+    { icon: '🌐', value: '50+', label: t('hero.stats.languages'), color: 'from-green-400 to-green-600' },
+    { icon: '⚡', value: '250K+', label: t('hero.stats.users'), color: 'from-blue-400 to-blue-600' },
   ];
 
   return (
@@ -20,29 +22,21 @@ function Hero() {
         {/* Main Hero Content */}
         <div className="text-center mb-16 space-y-6">
           <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
-            <span className="text-primary font-semibold">⚡ AI-POWERED VERIFICATION</span>
+            <span className="text-primary font-semibold">⚡ {t('hero.badge')}</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="gradient-text">VerityGuard</span>
+            <span className="gradient-text">{t('hero.title')}</span>
           </h1>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Truth in the Digital Age
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">{t('hero.subtitle')}</h2>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-            VerityGuard uses advanced machine learning to analyze news articles
-            and provide real-time credibility scores. Join thousands of users fighting
-            misinformation.
-          </p>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">{t('hero.description')}</p>
           
           <div className="flex flex-wrap justify-center gap-4 pt-6">
-            <button onClick={handleGetStarted} className="neon-button text-lg">
-              Get Started
-            </button>
+            <button onClick={handleGetStarted} className="neon-button text-lg">{t('hero.getStarted')}</button>
             <button className="px-8 py-4 border-2 border-primary/50 text-white rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-300 font-semibold text-lg backdrop-blur-sm">
-              🌐 Learn More
+              🌐 {t('hero.learnMore')}
             </button>
           </div>
         </div>
@@ -72,8 +66,8 @@ function Hero() {
         {/* Powered By Badge */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-md border border-primary/20 rounded-full">
-            <span className="text-gray-400 text-sm">POWERED BY</span>
-            <span className="text-primary font-bold">Advanced ML & NLP Technology</span>
+            <span className="text-gray-400 text-sm">{t('hero.poweredBy')}</span>
+            <span className="text-primary font-bold">{t('hero.tech')}</span>
           </div>
         </div>
       </div>

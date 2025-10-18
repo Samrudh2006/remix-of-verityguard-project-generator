@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import TrustGauge from './TrustGauge';
+import { useI18n } from '../i18n';
 
 // Minimal local demo: analyze a short claim and show a mock trust score with cross-refs
 function DemoClaimAnalyzer() {
@@ -88,17 +89,12 @@ function DemoClaimAnalyzer() {
 }
 
 export default function Submission() {
+  const { t } = useI18n();
   return (
     <section id="submission" className="scroll-mt-24 py-20 bg-dark">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white">
-          Agentic AI: Crisis Misinformation Watch
-        </h2>
-        <p className="mt-3 text-white/80 max-w-3xl">
-          An AI agent that continuously scans multi-channel content streams, detects emerging misinformation
-          during global or local crises, verifies claims via cross-references, and produces accessible, contextual
-          explanations tailored to diverse audiences.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white">{t('submission.title')}</h2>
+        <p className="mt-3 text-white/80 max-w-3xl">{t('submission.tagline')}</p>
 
         {/* Outline grid */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">

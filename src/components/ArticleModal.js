@@ -1,6 +1,8 @@
 import React from 'react';
+import { useI18n } from '../i18n';
 
 export default function ArticleModal({ open, onClose, article }) {
+  const { t } = useI18n();
   if (!open || !article) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -35,8 +37,8 @@ export default function ArticleModal({ open, onClose, article }) {
           </p>
 
           <div className="flex justify-end gap-3 pt-2">
-            <button className="px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition">Share</button>
-            <button className="neon-button" onClick={onClose}>Analyze</button>
+            <button className="px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition">{t('modal.share')}</button>
+            <button className="neon-button" onClick={onClose}>{t('modal.analyze')}</button>
           </div>
         </div>
       </div>
