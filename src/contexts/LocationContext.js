@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { reverseGeocode } from '../data/locations';
+import { useAuth } from './AuthContext';
 
 const LocationContext = createContext({
   location: null,
@@ -10,20 +11,16 @@ const LocationContext = createContext({
 });
 
 export function LocationProvider({ children }) {
-  const [location, setLocationState] = useState(() => {
-    // Try to load from localStorage
-    const saved = localStorage.getItem('userLocation');
-    return saved ? JSON.parse(saved) : null;
-  });
+  const { user, updateUserLocation } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Location comes from user profile if authenticated
+  const location = user?.location || null;
+
   const setLocation = (loc) => {
-    setLocationState(loc);
-    if (loc) {
-      localStorage.setItem('userLocation', JSON.stringify(loc));
-    } else {
-      localStorage.removeItem('userLocation');
+    if (user) {
+      updateUserLocation(loc);
     }
   };
 

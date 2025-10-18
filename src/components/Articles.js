@@ -2,24 +2,33 @@ import React, { useState, useMemo } from 'react';
 import ArticleModal from './ArticleModal';
 import { useI18n } from '../i18n';
 import { useLocation } from '../contexts/LocationContext';
+import { useAuth } from '../contexts/AuthContext';
 import { locationArticles } from '../data/articles';
 import LocationPicker from './LocationPicker';
 
 function Articles() {
   const { t } = useI18n();
   const { location } = useLocation();
+  const { isAuthenticated } = useAuth();
   const [activeTab, setActiveTab] = useState('all');
   const [selected, setSelected] = useState(null);
   const [showLocationPicker, setShowLocationPicker] = useState(false);
 
-  // Filter articles based on user's location
+  // Filter articles based on authentication and user's location
   const filteredArticles = useMemo(() => {
+    // If not authenticated, show only random national news
+    if (!isAuthenticated) {
+      const nationalNews = locationArticles.filter((a) => a.location.scope === 'national');
+      // Shuffle and return random national articles
+      return nationalNews.sort(() => Math.random() - 0.5);
+    }
+
+    // If authenticated but no location set, show all national news
     if (!location) {
-      // No location set - show only national news
       return locationArticles.filter((a) => a.location.scope === 'national');
     }
 
-    // Show local + state + national news based on user location
+    // If authenticated with location, show local + state + national news
     return locationArticles.filter((article) => {
       const { scope, state, city } = article.location;
 
@@ -37,7 +46,7 @@ function Articles() {
 
       return false;
     });
-  }, [location]);
+  }, [location, isAuthenticated]);
 
   const articles = filteredArticles;
 
@@ -68,23 +77,35 @@ function Articles() {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-4xl font-bold">{t('articles.title')}</h2>
-            {location && (
+            {!isAuthenticated && (
+              <div className="mt-2 text-sm text-yellow-400">
+                ℹ️ {t('articles.loginPrompt')}
+              </div>
+            )}
+            {isAuthenticated && !location && (
+              <div className="mt-2 text-sm text-white/70">
+                📍 {t('articles.setLocationPrompt')}
+              </div>
+            )}
+            {isAuthenticated && location && (
               <div className="mt-2 text-sm text-white/70">
                 📍 {t('location.showingFor')} <span className="text-primary font-semibold">{location.city && `${location.city}, `}{location.stateName || location.state}</span>
               </div>
             )}
           </div>
           <div className="flex gap-3">
-            <button
-              onClick={() => setShowLocationPicker(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              {location ? t('location.change') : t('location.set')}
-            </button>
+            {isAuthenticated && (
+              <button
+                onClick={() => setShowLocationPicker(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {location ? t('location.change') : t('location.set')}
+              </button>
+            )}
             <button className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-primary/30 rounded-lg hover:bg-white/10 transition-all">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
