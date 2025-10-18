@@ -10,6 +10,13 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
   const { login, signup } = useAuth();
   const { t } = useI18n();
 
+  // Role display mapping
+  const roleDisplay = {
+    user: t('login.role.user'),
+    contributor: t('login.role.contributor'),
+    admin: t('login.role.admin'),
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
@@ -52,10 +59,17 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
 
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-white mb-2">
-            {mode === 'login' ? t('auth.login') : t('auth.signup')}
+            {t('login.welcomeBack')}
           </h2>
+          {initialRole && (
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="text-primary text-sm">
+                {roleDisplay[initialRole]}
+              </span>
+            </div>
+          )}
           <p className="text-white/70 text-sm">
-            {mode === 'login' ? t('auth.loginSubtitle') : t('auth.signupSubtitle')}
+            {t('login.signInToAccess')}
           </p>
         </div>
 
