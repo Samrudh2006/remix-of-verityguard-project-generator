@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useI18n } from '../i18n';
 
-export default function AuthModal({ mode: initialMode = 'login', onClose }) {
+export default function AuthModal({ mode: initialMode = 'login', onClose, role: initialRole }) {
   const [mode, setMode] = useState(initialMode); // 'login' or 'signup'
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', role: initialRole || 'user' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login, signup } = useAuth();
@@ -36,7 +36,7 @@ export default function AuthModal({ mode: initialMode = 'login', onClose }) {
   const toggleMode = () => {
     setMode(mode === 'login' ? 'signup' : 'login');
     setError('');
-    setFormData({ name: '', email: '', password: '' });
+  setFormData({ name: '', email: '', password: '', role: initialRole || 'user' });
   };
 
   return (

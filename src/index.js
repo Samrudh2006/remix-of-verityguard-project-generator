@@ -5,6 +5,7 @@ import App from './App';
 import { I18nProvider } from './i18n';
 import { LocationProvider } from './contexts/LocationContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <I18nProvider>
       <AuthProvider>
         <LocationProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </LocationProvider>
       </AuthProvider>
     </I18nProvider>

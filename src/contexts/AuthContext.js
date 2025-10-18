@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
 
   // Signup - create new user account
   const signup = (userData) => {
-    const { name, email, password } = userData;
+    const { name, email, password, role = 'user' } = userData;
 
     // Validation
     if (!name || !email || !password) {
@@ -65,6 +65,7 @@ export function AuthProvider({ children }) {
       name,
       email: email.toLowerCase(),
       password, // In production, this should be hashed
+      role,
       location: null,
       createdAt: new Date().toISOString(),
       lastLogin: new Date().toISOString(),
@@ -74,7 +75,7 @@ export function AuthProvider({ children }) {
     saveUsers(updatedUsers);
 
     // Auto-login after signup
-    const userSession = { ...newUser };
+  const userSession = { ...newUser };
     delete userSession.password; // Don't store password in session
     setUser(userSession);
     localStorage.setItem('verityguard_session', JSON.stringify(userSession));
@@ -103,7 +104,7 @@ export function AuthProvider({ children }) {
     saveUsers(updatedUsers);
 
     // Set session
-    const userSession = { ...foundUser };
+  const userSession = { ...foundUser };
     delete userSession.password;
     setUser(userSession);
     localStorage.setItem('verityguard_session', JSON.stringify(userSession));

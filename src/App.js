@@ -8,6 +8,8 @@ import Badges from './components/Badges';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import Submission from './components/Submission';
+import { Routes, Route } from 'react-router-dom';
+import LoginOptions from './pages/LoginOptions';
 
 function App() {
   return (
@@ -15,33 +17,24 @@ function App() {
       {/* Header with navigation */}
       <Header />
       
-      {/* Main content */}
+      {/* Main content with routes */}
       <main>
-        {/* Hero section with stats */}
-        <Hero />
-        
-        {/* Features section */}
-        <Features />
-        
-        {/* Articles with Trust Scores */}
-        <Articles />
-        
-        {/* Leaderboard */}
-        <Leaderboard />
-        
-        {/* Badges & Achievements */}
-        <Badges />
-        
-        {/* Submission outline for challenge */}
-        <Submission />
-        
-        {/* 
-          TODO: Future enhancements:
-          - AI Assistant Chat Widget
-          - Real-time Trust Score Dashboard
-          - User Profile Page
-          - Advanced Analytics
-        */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Features />
+                <Articles />
+                <Leaderboard />
+                <Badges />
+                <Submission />
+              </>
+            }
+          />
+          <Route path="/login" element={<LoginOptions />} />
+        </Routes>
       </main>
       
       {/* Footer */}

@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import logo from '../logo.svg';
 import { useI18n, languages } from '../i18n';
 import { useAuth } from '../contexts/AuthContext';
-import AuthModal from './AuthModal';
+// import AuthModal from './AuthModal';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authMode, setAuthMode] = useState('login');
+  // const [showAuthModal, setShowAuthModal] = useState(false);
+  // const [authMode, setAuthMode] = useState('login');
   const [showLangMenu, setShowLangMenu] = useState(false);
   const { t, lang, setLang } = useI18n();
   const { user, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const currentLang = languages.find(l => l.code === lang);
 
@@ -22,9 +24,8 @@ function Header() {
     }
   };
 
-  const handleAuthClick = (mode) => {
-    setAuthMode(mode);
-    setShowAuthModal(true);
+  const handleAuthClick = () => {
+    navigate('/login');
   };
 
   const handleLogout = () => {
@@ -87,13 +88,13 @@ function Header() {
             ) : (
               <>
                 <button
-                  onClick={() => handleAuthClick('login')}
+                  onClick={handleAuthClick}
                   className="px-4 py-2 bg-white/10 border border-primary/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all"
                 >
                   {t('header.login')}
                 </button>
                 <button
-                  onClick={() => handleAuthClick('signup')}
+                  onClick={handleAuthClick}
                   className="px-4 py-2 bg-primary text-dark font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all"
                 >
                   {t('auth.signup')}
@@ -237,8 +238,7 @@ function Header() {
         )}
       </nav>
 
-      {/* Auth Modal */}
-      {showAuthModal && <AuthModal mode={authMode} onClose={() => setShowAuthModal(false)} />}
+  {/* Auth Modal no longer opened here; navigation goes to /login */}
     </header>
   );
 }
