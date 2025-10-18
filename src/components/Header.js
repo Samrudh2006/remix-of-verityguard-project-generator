@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import { useI18n } from '../i18n';
+import { useI18n, languages } from '../i18n';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
 
@@ -8,8 +8,11 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState('login');
+  const [showLangMenu, setShowLangMenu] = useState(false);
   const { t, lang, setLang } = useI18n();
   const { user, logout, isAuthenticated } = useAuth();
+
+  const currentLang = languages.find(l => l.code === lang);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -97,16 +100,48 @@ function Header() {
                 </button>
               </>
             )}
-            <div className="flex items-center gap-2 text-sm">
+            {/* Language Selector Dropdown */}
+            <div className="relative">
               <button
-                className={`px-2 py-1 rounded ${lang === 'en' ? 'bg-white/20 text-white' : 'text-white/70 hover:text-white'}`}
-                onClick={() => setLang('en')}
-              >EN</button>
-              <span className="text-white/40">|</span>
-              <button
-                className={`px-2 py-1 rounded ${lang === 'hi' ? 'bg-white/20 text-white' : 'text-white/70 hover:text-white'}`}
-                onClick={() => setLang('hi')}
-              >HI</button>
+                onClick={() => setShowLangMenu(!showLangMenu)}
+                className="flex items-center gap-2 px-3 py-2 bg-white/10 border border-primary/30 text-white rounded-lg hover:bg-white/20 transition-all"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                <span className="font-medium">{currentLang?.nativeName || 'EN'}</span>
+                <svg className={`w-4 h-4 transition-transform ${showLangMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {showLangMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-dark-lighter border border-primary/30 rounded-lg shadow-2xl overflow-hidden z-50">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => {
+                        setLang(language.code);
+                        setShowLangMenu(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 hover:bg-primary/20 transition-colors ${
+                        lang === language.code ? 'bg-primary/10 text-primary' : 'text-white/90'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium">{language.nativeName}</div>
+                          <div className="text-xs text-white/60">{language.name}</div>
+                        </div>
+                        {lang === language.code && (
+                          <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             {/* TODO: Add user profile icon with Trust Score badge */}
           </div>
@@ -183,10 +218,20 @@ function Header() {
                 </button>
               </>
             )}
-            <div className="flex items-center gap-3">
-              <button className={`px-2 py-1 rounded ${lang === 'en' ? 'bg-white/20 text-white' : 'text-white/70 hover:text-white'}`} onClick={() => setLang('en')}>EN</button>
-              <span className="text-white/40">|</span>
-              <button className={`px-2 py-1 rounded ${lang === 'hi' ? 'bg-white/20 text-white' : 'text-white/70 hover:text-white'}`} onClick={() => setLang('hi')}>HI</button>
+            {/* Mobile Language Selector */}
+            <div className="pt-2 border-t border-white/10">
+              <div className="text-xs text-white/60 mb-2">Language / भाषा</div>
+              <select
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
+                className="w-full px-3 py-2 bg-dark-lighter border border-primary/30 text-white rounded-lg focus:outline-none focus:border-primary"
+              >
+                {languages.map((language) => (
+                  <option key={language.code} value={language.code}>
+                    {language.nativeName} ({language.name})
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         )}
