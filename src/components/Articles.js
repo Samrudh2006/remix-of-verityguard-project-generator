@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import ArticleModal from './ArticleModal';
 
 function Articles() {
   const [activeTab, setActiveTab] = useState('all');
+  const [selected, setSelected] = useState(null);
 
   const articles = [
     {
@@ -87,7 +89,7 @@ function Articles() {
   };
 
   return (
-    <section id="articles" className="py-20 px-4 bg-gradient-to-b from-dark-light to-dark">
+    <section id="articles" className="py-20 px-4 bg-gradient-to-b from-dark-light to-dark scroll-mt-24">
       <div className="container mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="flex justify-between items-center mb-8">
@@ -127,6 +129,7 @@ function Articles() {
             <article 
               key={article.id}
               className="article-card glass-card overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer"
+              onClick={() => setSelected(article)}
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {/* Article Image */}
@@ -184,6 +187,9 @@ function Articles() {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      <ArticleModal open={!!selected} article={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

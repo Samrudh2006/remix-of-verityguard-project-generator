@@ -1,4 +1,5 @@
 import React from 'react';
+import TrustGauge from './TrustGauge';
 
 function Hero() {
   const handleGetStarted = () => {
@@ -49,7 +50,7 @@ function Hero() {
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={index}
               className="stat-card glass-card text-center p-6 hover:scale-105 transition-transform duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -61,6 +62,11 @@ function Hero() {
               <div className="text-gray-400 text-sm">{stat.label}</div>
             </div>
           ))}
+        </div>
+
+        {/* TrustGauge Component */}
+        <div className="mt-10 flex justify-center">
+          <TrustGauge value={88} />
         </div>
 
         {/* Powered By Badge */}
