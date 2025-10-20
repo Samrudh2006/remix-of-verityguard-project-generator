@@ -10,6 +10,9 @@ import BackToTop from './components/BackToTop';
 import Submission from './components/Submission';
 import { Routes, Route } from 'react-router-dom';
 import LoginOptions from './pages/LoginOptions';
+import UserDashboard from './pages/UserDashboard';
+import ContributorDashboard from './pages/ContributorDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
             }
           />
           <Route path="/login" element={<LoginOptions />} />
+          <Route path="/dashboard/user" element={<UserDashboard />} />
+          <Route path="/dashboard/contributor" element={<ContributorDashboard />} />
+          <Route path="/dashboard/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       

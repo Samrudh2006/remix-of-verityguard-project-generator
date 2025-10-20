@@ -8,6 +8,10 @@ const AuthContext = createContext({
   logout: () => {},
   updateUserLocation: () => {},
   isAuthenticated: false,
+  userRole: null,
+  isUser: false,
+  isContributor: false,
+  isAdmin: false,
 });
 
 const MAX_USERS = 10; // Store up to 10 users locally
@@ -141,6 +145,10 @@ export function AuthProvider({ children }) {
     logout,
     updateUserLocation,
     isAuthenticated: !!user,
+    userRole: user?.role || null,
+    isUser: user?.role === 'user',
+    isContributor: user?.role === 'contributor',
+    isAdmin: user?.role === 'admin',
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

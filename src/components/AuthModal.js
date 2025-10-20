@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useI18n } from '../i18n';
+import { useNavigate } from 'react-router-dom';
 
 export default function AuthModal({ mode: initialMode = 'login', onClose, role: initialRole }) {
   const [mode, setMode] = useState(initialMode); // 'login' or 'signup'
@@ -9,6 +10,7 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
   const [loading, setLoading] = useState(false);
   const { login, signup } = useAuth();
   const { t } = useI18n();
+  const navigate = useNavigate();
 
   // Role display mapping
   const roleDisplay = {
@@ -35,6 +37,15 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
 
     if (result.success) {
       onClose();
+      // Redirect to appropriate dashboard based on role
+      const userRole = result.user?.role || formData.role;
+      if (userRole === 'admin') {
+        navigate('/dashboard/admin');
+      } else if (userRole === 'contributor') {
+        navigate('/dashboard/contributor');
+      } else {
+        navigate('/dashboard/user');
+      }
     } else {
       setError(result.error);
     }
