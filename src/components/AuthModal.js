@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useI18n } from '../i18n';
 
@@ -9,12 +10,14 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
   const [loading, setLoading] = useState(false);
   const { login, signup } = useAuth();
   const { t } = useI18n();
+  const navigate = useNavigate();
 
   // Role display mapping
   const roleDisplay = {
     user: t('login.role.user'),
     contributor: t('login.role.contributor'),
-    admin: t('login.role.admin'),
+    moderator: 'Moderator',
+    'super-admin': t('login.role.admin'),
   };
 
   const handleChange = (e) => {
@@ -35,6 +38,10 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
 
     if (result.success) {
       onClose();
+      // Redirect to appropriate dashboard
+      if (result.redirectTo) {
+        navigate(result.redirectTo);
+      }
     } else {
       setError(result.error);
     }
@@ -43,7 +50,7 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
   const toggleMode = () => {
     setMode(mode === 'login' ? 'signup' : 'login');
     setError('');
-  setFormData({ name: '', email: '', password: '', role: initialRole || 'user' });
+    setFormData({ name: '', email: '', password: '', role: initialRole || 'user' });
   };
 
   return (

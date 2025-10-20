@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getDashboardPath } from '../utils/roles';
 
 const AuthContext = createContext({
   user: null,
@@ -75,12 +76,12 @@ export function AuthProvider({ children }) {
     saveUsers(updatedUsers);
 
     // Auto-login after signup
-  const userSession = { ...newUser };
+    const userSession = { ...newUser };
     delete userSession.password; // Don't store password in session
     setUser(userSession);
     localStorage.setItem('verityguard_session', JSON.stringify(userSession));
 
-    return { success: true, user: userSession };
+    return { success: true, user: userSession, redirectTo: getDashboardPath(role) };
   };
 
   // Login - authenticate existing user
@@ -104,12 +105,12 @@ export function AuthProvider({ children }) {
     saveUsers(updatedUsers);
 
     // Set session
-  const userSession = { ...foundUser };
+    const userSession = { ...foundUser };
     delete userSession.password;
     setUser(userSession);
     localStorage.setItem('verityguard_session', JSON.stringify(userSession));
 
-    return { success: true, user: userSession };
+    return { success: true, user: userSession, redirectTo: getDashboardPath(foundUser.role) };
   };
 
   // Logout - clear session

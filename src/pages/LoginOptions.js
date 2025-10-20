@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useI18n } from '../i18n';
 import { useNavigate } from 'react-router-dom';
 import AuthModal from '../components/AuthModal';
-import logo from '../logo.svg';
+import { ROLES } from '../utils/roles';
 
 export default function LoginOptions() {
   const { t } = useI18n();
@@ -12,7 +12,7 @@ export default function LoginOptions() {
 
   const roles = [
     { 
-      key: 'user', 
+      key: ROLES.USER, 
       icon: '👤', 
       iconBg: 'bg-green-100', 
       iconColor: 'text-green-600',
@@ -20,16 +20,24 @@ export default function LoginOptions() {
       desc: t('login.desc.user') 
     },
     { 
-      key: 'contributor', 
-      icon: '🏪', 
+      key: ROLES.CONTRIBUTOR, 
+      icon: '✍️', 
       iconBg: 'bg-blue-100', 
       iconColor: 'text-blue-600',
       label: t('login.role.contributor'), 
       desc: t('login.desc.contributor') 
     },
     { 
-      key: 'admin', 
+      key: ROLES.MODERATOR, 
       icon: '🛡️', 
+      iconBg: 'bg-purple-100', 
+      iconColor: 'text-purple-600',
+      label: 'Sign in as Moderator', 
+      desc: 'Review content, moderate submissions, ensure quality standards' 
+    },
+    { 
+      key: ROLES.SUPER_ADMIN, 
+      icon: '�', 
       iconBg: 'bg-red-100', 
       iconColor: 'text-red-600',
       label: t('login.role.admin'), 
@@ -53,14 +61,14 @@ export default function LoginOptions() {
         {/* Logo and Title */}
         <div className="text-center mb-12">
           <div className="flex justify-center items-center gap-3 mb-4">
-            <img src={logo} alt="VerityGuard Logo" className="h-16 w-16" />
+            <div className="text-6xl">🛡️</div>
             <h1 className="text-4xl font-bold text-white">{t('login.options.title')}</h1>
           </div>
           <p className="text-white/70 text-lg">{t('login.options.subtitle')}</p>
         </div>
 
         {/* Role Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {roles.map((role) => (
             <div
               key={role.key}
