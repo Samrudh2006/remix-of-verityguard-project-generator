@@ -25,3 +25,4 @@ yarn-error.log*
 # old static site (replaced by React app)
 /site
 /scripts
+.env
