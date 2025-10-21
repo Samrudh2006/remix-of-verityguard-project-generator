@@ -12,9 +12,11 @@ import { Routes, Route } from 'react-router-dom';
 import LoginOptions from './pages/LoginOptions';
 import Unauthorized from './pages/Unauthorized';
 import ProtectedRoute from './components/ProtectedRoute';
+import RedirectByRole from './components/RedirectByRole';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ContributorDashboard from './pages/contributor/ContributorDashboard';
 import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+import UserDashboard from './pages/user/UserDashboard';
 import { ROLES } from './utils/roles';
 
 function App() {
@@ -43,9 +45,12 @@ function App() {
         <Route path="/login" element={<LoginOptions />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         
-        {/* Protected Routes - Super Admin */}
+        {/* Redirect based on role - for authenticated users accessing /dashboard */}
+        <Route path="/dashboard" element={<RedirectByRole />} />
+        
+        {/* Protected Routes - Admin Dashboard */}
         <Route
-          path="/admin/dashboard"
+          path="/dashboard/admin"
           element={
             <ProtectedRoute requiredRole={ROLES.SUPER_ADMIN}>
               <AdminDashboard />
@@ -53,9 +58,19 @@ function App() {
           }
         />
         
-        {/* Protected Routes - Contributor */}
+        {/* Protected Routes - Moderator Dashboard */}
         <Route
-          path="/contributor/dashboard"
+          path="/dashboard/moderator"
+          element={
+            <ProtectedRoute requiredRole={ROLES.MODERATOR}>
+              <ModeratorDashboard />
+            </ProtectedRoute>
+          }
+        />
+        
+        {/* Protected Routes - Contributor Dashboard */}
+        <Route
+          path="/dashboard/contributor"
           element={
             <ProtectedRoute requiredRole={ROLES.CONTRIBUTOR}>
               <ContributorDashboard />
@@ -63,12 +78,12 @@ function App() {
           }
         />
         
-        {/* Protected Routes - Moderator */}
+        {/* Protected Routes - User Dashboard */}
         <Route
-          path="/moderator/dashboard"
+          path="/dashboard/user"
           element={
-            <ProtectedRoute requiredRole={ROLES.MODERATOR}>
-              <ModeratorDashboard />
+            <ProtectedRoute requiredRole={ROLES.USER}>
+              <UserDashboard />
             </ProtectedRoute>
           }
         />

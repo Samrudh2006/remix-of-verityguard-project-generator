@@ -136,10 +136,10 @@ export const getRolePermissions = (role) => {
  */
 export const getDashboardPath = (role) => {
   const dashboardPaths = {
-    [ROLES.SUPER_ADMIN]: '/admin/dashboard',
-    [ROLES.MODERATOR]: '/moderator/dashboard',
-    [ROLES.CONTRIBUTOR]: '/contributor/dashboard',
-    [ROLES.USER]: '/',
+    [ROLES.SUPER_ADMIN]: '/dashboard/admin',
+    [ROLES.MODERATOR]: '/dashboard/moderator',
+    [ROLES.CONTRIBUTOR]: '/dashboard/contributor',
+    [ROLES.USER]: '/dashboard/user',
   };
   
   return dashboardPaths[role] || '/';

@@ -2,14 +2,14 @@ import React from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
 
 const navigation = [
-  { path: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/admin/users', icon: '👥', label: 'User Management' },
-  { path: '/admin/roles', icon: '🔐', label: 'Roles & Permissions' },
-  { path: '/admin/content', icon: '📄', label: 'Content Management' },
-  { path: '/admin/analytics', icon: '📈', label: 'Analytics' },
-  { path: '/admin/audit-logs', icon: '📝', label: 'Audit Logs' },
-  { path: '/admin/settings', icon: '⚙️', label: 'Settings' },
-  { path: '/admin/security', icon: '🛡️', label: 'Security Center' },
+  { path: '/dashboard/admin', icon: '📊', label: 'Dashboard' },
+  { path: '/dashboard/admin/users', icon: '👥', label: 'User Management' },
+  { path: '/dashboard/admin/roles', icon: '🔐', label: 'Roles & Permissions' },
+  { path: '/dashboard/admin/content', icon: '📄', label: 'Content Management' },
+  { path: '/dashboard/admin/analytics', icon: '📈', label: 'Analytics' },
+  { path: '/dashboard/admin/audit-logs', icon: '📝', label: 'Audit Logs' },
+  { path: '/dashboard/admin/settings', icon: '⚙️', label: 'Settings' },
+  { path: '/dashboard/admin/security', icon: '🛡️', label: 'Security Center' },
 ];
 
 export default function AdminDashboard() {
@@ -133,10 +133,10 @@ export default function AdminDashboard() {
         <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { icon: '➕', label: 'Add User', path: '/admin/users/new' },
-            { icon: '📊', label: 'View Reports', path: '/admin/analytics' },
-            { icon: '🔍', label: 'Audit Logs', path: '/admin/audit-logs' },
-            { icon: '⚙️', label: 'Settings', path: '/admin/settings' },
+            { icon: '➕', label: 'Add User', path: '/dashboard/admin/users/new' },
+            { icon: '📊', label: 'View Reports', path: '/dashboard/admin/analytics' },
+            { icon: '🔍', label: 'Audit Logs', path: '/dashboard/admin/audit-logs' },
+            { icon: '⚙️', label: 'Settings', path: '/dashboard/admin/settings' },
           ].map((action, index) => (
             <button
               key={index}
