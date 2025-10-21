@@ -2,13 +2,13 @@ import React from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
 
 const navigation = [
-  { path: '/contributor/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/contributor/create', icon: '✍️', label: 'Create Content' },
-  { path: '/contributor/drafts', icon: '📝', label: 'Drafts', badge: 3 },
-  { path: '/contributor/published', icon: '📄', label: 'Published' },
-  { path: '/contributor/analytics', icon: '📈', label: 'Analytics' },
-  { path: '/contributor/media', icon: '🖼️', label: 'Media Library' },
-  { path: '/contributor/profile', icon: '👤', label: 'Profile' },
+  { path: '/dashboard/contributor', icon: '📊', label: 'Dashboard' },
+  { path: '/dashboard/contributor/create', icon: '✍️', label: 'Create Content' },
+  { path: '/dashboard/contributor/drafts', icon: '📝', label: 'Drafts', badge: 3 },
+  { path: '/dashboard/contributor/published', icon: '📄', label: 'Published' },
+  { path: '/dashboard/contributor/analytics', icon: '📈', label: 'Analytics' },
+  { path: '/dashboard/contributor/media', icon: '🖼️', label: 'Media Library' },
+  { path: '/dashboard/contributor/profile', icon: '👤', label: 'Profile' },
 ];
 
 export default function ContributorDashboard() {

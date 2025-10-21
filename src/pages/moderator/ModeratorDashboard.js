@@ -2,13 +2,13 @@ import React from 'react';
 import DashboardLayout from '../../components/DashboardLayout';
 
 const navigation = [
-  { path: '/moderator/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/moderator/queue', icon: '⏳', label: 'Review Queue', badge: 42 },
-  { path: '/moderator/flagged', icon: '🚩', label: 'Flagged Content', badge: 8 },
-  { path: '/moderator/reports', icon: '📋', label: 'User Reports' },
-  { path: '/moderator/history', icon: '📝', label: 'My History' },
-  { path: '/moderator/analytics', icon: '📈', label: 'Analytics' },
-  { path: '/moderator/guidelines', icon: '📖', label: 'Guidelines' },
+  { path: '/dashboard/moderator', icon: '📊', label: 'Dashboard' },
+  { path: '/dashboard/moderator/queue', icon: '⏳', label: 'Review Queue', badge: 42 },
+  { path: '/dashboard/moderator/flagged', icon: '🚩', label: 'Flagged Content', badge: 8 },
+  { path: '/dashboard/moderator/reports', icon: '📋', label: 'User Reports' },
+  { path: '/dashboard/moderator/history', icon: '📝', label: 'My History' },
+  { path: '/dashboard/moderator/analytics', icon: '📈', label: 'Analytics' },
+  { path: '/dashboard/moderator/guidelines', icon: '📖', label: 'Guidelines' },
 ];
 
 export default function ModeratorDashboard() {
