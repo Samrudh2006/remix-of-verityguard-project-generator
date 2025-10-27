@@ -38,9 +38,11 @@ export default function AuthModal({ mode: initialMode = 'login', onClose, role: 
 
     if (result.success) {
       onClose();
-      // Redirect to appropriate dashboard
+      // Redirect to role-specific dashboard
       if (result.redirectTo) {
         navigate(result.redirectTo);
+      } else {
+        navigate('/dashboard');
       }
     } else {
       setError(result.error);

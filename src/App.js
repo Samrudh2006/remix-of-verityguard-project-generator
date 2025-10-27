@@ -8,13 +8,15 @@ import Badges from './components/Badges';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import Submission from './components/Submission';
+import DemoShowcase from './components/DemoShowcase';
 import { Routes, Route } from 'react-router-dom';
 import LoginOptions from './pages/LoginOptions';
 import Unauthorized from './pages/Unauthorized';
 import ProtectedRoute from './components/ProtectedRoute';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import ContributorDashboard from './pages/contributor/ContributorDashboard';
-import ModeratorDashboard from './pages/moderator/ModeratorDashboard';
+import UserMainDashboard from './pages/UserMainDashboard';
+import ContributorMainDashboard from './pages/ContributorMainDashboard';
+import ModeratorMainDashboard from './pages/ModeratorMainDashboard';
+import AdminMainDashboard from './pages/AdminMainDashboard';
 import { ROLES } from './utils/roles';
 
 function App() {
@@ -30,6 +32,11 @@ function App() {
               <main>
                 <Hero />
                 <Features />
+                <div className="py-20 px-4 bg-dark-light">
+                  <div className="container mx-auto max-w-4xl">
+                    <DemoShowcase />
+                  </div>
+                </div>
                 <Articles />
                 <Leaderboard />
                 <Badges />
@@ -48,7 +55,7 @@ function App() {
           path="/admin/dashboard"
           element={
             <ProtectedRoute requiredRole={ROLES.SUPER_ADMIN}>
-              <AdminDashboard />
+              <AdminMainDashboard />
             </ProtectedRoute>
           }
         />
@@ -58,7 +65,7 @@ function App() {
           path="/contributor/dashboard"
           element={
             <ProtectedRoute requiredRole={ROLES.CONTRIBUTOR}>
-              <ContributorDashboard />
+              <ContributorMainDashboard />
             </ProtectedRoute>
           }
         />
@@ -68,7 +75,17 @@ function App() {
           path="/moderator/dashboard"
           element={
             <ProtectedRoute requiredRole={ROLES.MODERATOR}>
-              <ModeratorDashboard />
+              <ModeratorMainDashboard />
+            </ProtectedRoute>
+          }
+        />
+        
+        {/* Protected Routes - User */}
+        <Route
+          path="/user/dashboard"
+          element={
+            <ProtectedRoute requiredRole={ROLES.USER}>
+              <UserMainDashboard />
             </ProtectedRoute>
           }
         />

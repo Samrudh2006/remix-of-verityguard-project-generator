@@ -4,6 +4,7 @@ import { useI18n, languages } from '../i18n';
 import { useAuth } from '../contexts/AuthContext';
 // import AuthModal from './AuthModal';
 import { useNavigate } from 'react-router-dom';
+import { getDashboardPath } from '../utils/roles';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,6 +73,12 @@ function Header() {
             </button>
             {isAuthenticated ? (
               <>
+                <button
+                  onClick={() => navigate(getDashboardPath(user.role))}
+                  className="px-4 py-2 bg-primary/20 border border-primary/30 text-primary font-semibold rounded-lg hover:bg-primary/30 transition-all"
+                >
+                  🎛️ Dashboard
+                </button>
                 <div className="flex items-center gap-3 px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-cyan-400 flex items-center justify-center text-dark font-bold">
                     {user.name.charAt(0).toUpperCase()}
@@ -192,6 +199,12 @@ function Header() {
             </button>
             {isAuthenticated ? (
               <>
+                <button
+                  onClick={() => navigate(getDashboardPath(user.role))}
+                  className="w-full px-4 py-2 bg-primary/20 border border-primary/30 text-primary font-semibold rounded-lg hover:bg-primary/30 transition-all"
+                >
+                  🎛️ Dashboard
+                </button>
                 <div className="py-2 px-3 bg-primary/10 border border-primary/30 rounded-lg">
                   <div className="text-xs text-white/70">{t('auth.loggedInAs')}</div>
                   <div className="text-white font-semibold">{user.name}</div>
