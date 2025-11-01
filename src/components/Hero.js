@@ -17,8 +17,9 @@ function Hero() {
   ];
 
   return (
-    <section id="home" className="pt-32 pb-20 px-4 min-h-screen flex items-center bg-gradient-to-b from-dark via-dark to-dark-light scroll-mt-24">
-      <div className="container mx-auto">
+    <section id="home" className="pt-32 pb-20 px-4 min-h-screen flex items-center bg-gradient-to-b from-dark via-dark to-dark-light scroll-mt-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: 'url(/images/hero-background.svg)' }}></div>
+      <div className="container mx-auto relative z-10">
         {/* Main Hero Content */}
         <div className="text-center mb-16 space-y-6">
           <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
