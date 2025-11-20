@@ -1,0 +1,219 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Enhanced Background with Multiple Gradients -->
+  <defs>
+    <!-- Main background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#0f1726;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#1a2332;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e2940;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Animated glow gradient -->
+    <radialGradient id="glowGradient1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6ee7b7;stop-opacity:0.5" />
+      <stop offset="40%" style="stop-color:#48c6ef;stop-opacity:0.3" />
+      <stop offset="70%" style="stop-color:#667eea;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#6ee7b7;stop-opacity:0" />
+    </radialGradient>
+    
+    <radialGradient id="glowGradient2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#48c6ef;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Cyber grid lines -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6ee7b7;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#6ee7b7;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6ee7b7;stop-opacity:0" />
+    </linearGradient>
+    
+    <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48c6ef;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#48c6ef;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#48c6ef;stop-opacity:0" />
+    </linearGradient>
+    
+    <!-- Diagonal pattern -->
+    <pattern id="diagonalPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="40" y2="40" stroke="#6ee7b7" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Base background with gradient -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Diagonal pattern overlay -->
+  <rect width="1920" height="1080" fill="url(#diagonalPattern)"/>
+  
+  <!-- Large animated glow circles -->
+  <circle cx="200" cy="150" r="500" fill="url(#glowGradient1)" opacity="0.6">
+    <animate attributeName="r" values="500;550;500" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="1720" cy="930" r="600" fill="url(#glowGradient2)" opacity="0.5">
+    <animate attributeName="r" values="600;650;600" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="960" cy="540" r="700" fill="url(#glowGradient1)" opacity="0.3">
+    <animate attributeName="r" values="700;780;700" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="1500" cy="300" r="400" fill="url(#glowGradient2)" opacity="0.4">
+    <animate attributeName="r" values="400;450;400" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="420" cy="780" r="350" fill="url(#glowGradient1)" opacity="0.4">
+    <animate attributeName="r" values="350;400;350" dur="9s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Enhanced Grid pattern with depth -->
+  <g opacity="0.2">
+    <!-- Horizontal lines with varied opacity -->
+    <line x1="0" y1="135" x2="1920" y2="135" stroke="#6ee7b7" stroke-width="1.5" opacity="0.4"/>
+    <line x1="0" y1="270" x2="1920" y2="270" stroke="#48c6ef" stroke-width="1" opacity="0.3"/>
+    <line x1="0" y1="405" x2="1920" y2="405" stroke="#6ee7b7" stroke-width="1" opacity="0.35"/>
+    <line x1="0" y1="540" x2="1920" y2="540" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+    <line x1="0" y1="675" x2="1920" y2="675" stroke="#48c6ef" stroke-width="1" opacity="0.35"/>
+    <line x1="0" y1="810" x2="1920" y2="810" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+    <line x1="0" y1="945" x2="1920" y2="945" stroke="#6ee7b7" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- Vertical lines with varied opacity -->
+    <line x1="320" y1="0" x2="320" y2="1080" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+    <line x1="640" y1="0" x2="640" y2="1080" stroke="#48c6ef" stroke-width="1" opacity="0.35"/>
+    <line x1="960" y1="0" x2="960" y2="1080" stroke="#667eea" stroke-width="2" opacity="0.5"/>
+    <line x1="1280" y1="0" x2="1280" y2="1080" stroke="#48c6ef" stroke-width="1" opacity="0.35"/>
+    <line x1="1600" y1="0" x2="1600" y2="1080" stroke="#6ee7b7" stroke-width="1" opacity="0.3"/>
+  </g>
+  
+  <!-- Cyber Shield elements with animation -->
+  <g opacity="0.15">
+    <path d="M350 250 L350 150 L450 130 L550 150 L550 250 Q550 330 450 370 Q350 330 350 250 Z" 
+          stroke="#6ee7b7" stroke-width="3" fill="none">
+      <animate attributeName="opacity" values="0.15;0.3;0.15" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M400 210 L430 240 L490 180" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="450" cy="250" r="100" stroke="#6ee7b7" stroke-width="2" fill="none" opacity="0.2">
+      <animate attributeName="r" values="100;110;100" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <g opacity="0.12">
+    <path d="M1370 750 L1370 650 L1470 630 L1570 650 L1570 750 Q1570 830 1470 870 Q1370 830 1370 750 Z" 
+          stroke="#48c6ef" stroke-width="3" fill="none">
+      <animate attributeName="opacity" values="0.12;0.25;0.12" dur="5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M1420 710 L1450 740 L1510 680" stroke="#48c6ef" stroke-width="3" fill="none" stroke-linecap="round">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Hexagon clusters with animation -->
+  <g opacity="0.1">
+    <polygon points="180,850 230,825 280,850 280,900 230,925 180,900" 
+             stroke="#6ee7b7" stroke-width="2" fill="rgba(110, 231, 183, 0.05)">
+      <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="140,900 165,887 190,900 190,925 165,938 140,925" 
+             stroke="#6ee7b7" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <polygon points="220,900 245,887 270,900 270,925 245,938 220,925" 
+             stroke="#6ee7b7" stroke-width="1.5" fill="none" opacity="0.6"/>
+  </g>
+  
+  <g opacity="0.1">
+    <polygon points="1680,180 1730,155 1780,180 1780,230 1730,255 1680,230" 
+             stroke="#667eea" stroke-width="2" fill="rgba(102, 126, 234, 0.05)">
+      <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="7s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="1640,230 1665,217 1690,230 1690,255 1665,268 1640,255" 
+             stroke="#667eea" stroke-width="1.5" fill="none" opacity="0.6"/>
+  </g>
+  
+  <!-- DNA-like helix pattern -->
+  <g opacity="0.08">
+    <path d="M100 200 Q 300 250, 500 200 T 900 200" stroke="#48c6ef" stroke-width="2" fill="none">
+      <animate attributeName="d" 
+               values="M100 200 Q 300 250, 500 200 T 900 200;M100 200 Q 300 150, 500 200 T 900 200;M100 200 Q 300 250, 500 200 T 900 200" 
+               dur="8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M100 200 Q 300 150, 500 200 T 900 200" stroke="#6ee7b7" stroke-width="2" fill="none">
+      <animate attributeName="d" 
+               values="M100 200 Q 300 150, 500 200 T 900 200;M100 200 Q 300 250, 500 200 T 900 200;M100 200 Q 300 150, 500 200 T 900 200" 
+               dur="8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Circuit board patterns -->
+  <g opacity="0.1">
+    <circle cx="800" cy="300" r="6" fill="#6ee7b7"/>
+    <circle cx="1100" cy="300" r="6" fill="#6ee7b7"/>
+    <line x1="800" y1="300" x2="1100" y2="300" stroke="#6ee7b7" stroke-width="2"/>
+    <circle cx="950" cy="300" r="4" fill="#48c6ef">
+      <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <g opacity="0.1">
+    <circle cx="700" cy="700" r="6" fill="#667eea"/>
+    <circle cx="700" cy="900" r="6" fill="#667eea"/>
+    <line x1="700" y1="700" x2="700" y2="900" stroke="#667eea" stroke-width="2"/>
+    <circle cx="700" cy="800" r="4" fill="#48c6ef">
+      <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connecting network lines with gradient -->
+  <g opacity="0.12">
+    <line x1="200" y1="150" x2="960" y2="540" stroke="url(#lineGradient)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="960" y1="540" x2="1720" y2="930" stroke="url(#lineGradient2)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="450" y1="250" x2="1470" y2="750" stroke="url(#lineGradient)" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="7s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Animated decorative dots with pulse -->
+  <g opacity="0.6">
+    <circle cx="120" cy="120" r="5" fill="#6ee7b7">
+      <animate attributeName="r" values="5;8;5" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1800" cy="120" r="5" fill="#48c6ef">
+      <animate attributeName="r" values="5;8;5" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="960" r="5" fill="#667eea">
+      <animate attributeName="r" values="5;8;5" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1800" cy="960" r="5" fill="#6ee7b7">
+      <animate attributeName="r" values="5;8;5" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="960" cy="80" r="5" fill="#48c6ef">
+      <animate attributeName="r" values="5;8;5" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="960" cy="1000" r="5" fill="#667eea">
+      <animate attributeName="r" values="5;8;5" dur="3.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Scanning line effect -->
+  <line x1="0" y1="540" x2="1920" y2="540" stroke="#6ee7b7" stroke-width="2" opacity="0.3">
+    <animate attributeName="y1" values="0;1080;0" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0;1080;0" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" dur="10s" repeatCount="indefinite"/>
+  </line>
+</svg>
